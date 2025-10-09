@@ -6,7 +6,7 @@ import httpx
 from datetime import datetime, timezone
 
 from .constants import SPORT_META
-from .util import decimal_to_american, american_to_decimal, build_game_slug, parse_datetime_to_utc
+from .util import decimal_to_american, american_to_decimal, build_game_slug, parse_datetime_to_utc, slugify_team_name_only
 from .supabase_repo import SupabaseRepo  # for type compatibility
 from .db_repo import DBRepo
 from .config import ODDS_API_KEY, ODDS_API_REGIONS
@@ -107,9 +107,9 @@ def ingest_odds_for_sport(client: httpx.Client, repo: SupabaseRepo | DBRepo, spo
                 pass
         if not (home_row and away_row):
             continue
-        h_key = (home_row.get("team_name_only") or home_row.get("abbreviation")).upper()
-        a_key = (away_row.get("team_name_only") or away_row.get("abbreviation")).upper()
-        slug = build_game_slug(h_key, a_key, date_iso)
+        h_key_raw = (home_row.get("team_name_only") or home_row.get("abbreviation")).upper()
+        a_key_raw = (away_row.get("team_name_only") or away_row.get("abbreviation")).upper()
+        slug = build_game_slug(slugify_team_name_only(h_key_raw), slugify_team_name_only(a_key_raw), date_iso)
         # Find game by external ref or slug
         game_uuid = None
         event_id = ev.get("id")
@@ -265,9 +265,9 @@ def ingest_odds_historical_for_sport(
             continue
         if not (home_row and away_row):
             continue
-        h_key = (home_row.get("team_name_only") or home_row.get("abbreviation")).upper()
-        a_key = (away_row.get("team_name_only") or away_row.get("abbreviation")).upper()
-        slug = build_game_slug(h_key, a_key, date_iso)
+        h_key_raw = (home_row.get("team_name_only") or home_row.get("abbreviation")).upper()
+        a_key_raw = (away_row.get("team_name_only") or away_row.get("abbreviation")).upper()
+        slug = build_game_slug(slugify_team_name_only(h_key_raw), slugify_team_name_only(a_key_raw), date_iso)
         # find game uuid (prefer external ref)
         game_uuid = None
         try:
@@ -401,7 +401,7 @@ def ingest_odds_historical_for_sport(
         home_abbr = _extract_abbr(home)
         away_abbr = _extract_abbr(away)
         date_obj = parse_datetime_to_utc(ev.get("date") or ev.get("time", ""))
-        slug = build_game_slug(home_abbr, away_abbr, date_obj.date().isoformat())
+        slug = build_game_slug(slugify_team_name_only(home_abbr), slugify_team_name_only(away_abbr), date_obj.date().isoformat())
 
         # Need the game uuid to tie market selections → odds. Fetch the game row.
         game_row = None

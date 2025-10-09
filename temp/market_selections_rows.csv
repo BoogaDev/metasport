@@ -1,0 +1,7 @@
+id,game_id,selection_type,period,participant_team_id,side,line,line_units,created_at,updated_at
+b98bbcd6-2721-4401-8e91-02fd51a35495,ce1ecfc2-807c-4fe2-915e-e708ceaaf644,moneyline,full_game,8560a0ea-9a86-4c1c-b1c7-95da5faccbed,away,,goals,2025-10-08 23:17:05.289504+00,2025-10-08 23:17:05.289504+00
+2e1dfa05-2328-4dfe-8828-ba6f275dd4fb,ce1ecfc2-807c-4fe2-915e-e708ceaaf644,moneyline,full_game,8311f401-c03d-4cc7-aa4a-2205eb88f0a4,home,,goals,2025-10-08 23:17:05.370637+00,2025-10-08 23:17:05.370637+00
+8ff95c2e-1e1f-4b5d-9e23-f8540f614fd0,ce1ecfc2-807c-4fe2-915e-e708ceaaf644,spread,full_game,8560a0ea-9a86-4c1c-b1c7-95da5faccbed,away,1.500,goals,2025-10-08 23:17:05.437597+00,2025-10-08 23:17:05.437597+00
+67e4240e-5b43-47be-a368-629d41e796ec,ce1ecfc2-807c-4fe2-915e-e708ceaaf644,spread,full_game,8311f401-c03d-4cc7-aa4a-2205eb88f0a4,home,-1.500,goals,2025-10-08 23:17:05.504375+00,2025-10-08 23:17:05.504375+00
+925fae60-2b96-47fc-bbc5-8e82f2210b9b,ce1ecfc2-807c-4fe2-915e-e708ceaaf644,total,full_game,,over,5.500,goals,2025-10-08 23:17:05.569462+00,2025-10-08 23:17:05.569462+00
+bba008bf-2a38-447b-99d3-d00c345aac2e,ce1ecfc2-807c-4fe2-915e-e708ceaaf644,total,full_game,,under,5.500,goals,2025-10-08 23:17:05.633122+00,2025-10-08 23:17:05.633122+00

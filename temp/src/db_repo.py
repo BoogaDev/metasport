@@ -156,6 +156,39 @@ class DBRepo:
             )
             return cur.fetchone()
 
+    def insert_game_if_not_exists(self, row: Dict[str, Any]) -> Optional[Dict[str, Any]]:
+        columns = [
+            "game_id",
+            "league",
+            "season",
+            "week",
+            "start_time_utc",
+            "start_time_tbd",
+            "original_start_time_utc",
+            "venue_id",
+            "is_neutral_site",
+            "doubleheader_seq",
+            "rotation_number_home",
+            "rotation_number_away",
+            "status",
+            "home_team_id",
+            "away_team_id",
+            "home_score",
+            "away_score",
+        ]
+        values = [row.get(c) for c in columns]
+        with self.conn.cursor() as cur:
+            cur.execute(
+                f"""
+                insert into games ({', '.join(columns)})
+                values ({', '.join(['%s'] * len(columns))})
+                on conflict (game_id) do nothing
+                returning *
+                """,
+                values,
+            )
+            return cur.fetchone()
+
     def update_game_scores(self, game_id_slug: str, home_score: Optional[int], away_score: Optional[int], status: Optional[str]) -> None:
         with self.conn.cursor() as cur:
             cur.execute(

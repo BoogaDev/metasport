@@ -7,7 +7,7 @@ import httpx
 
 from .constants import SPORT_META
 from .config import TIMEZONE
-from .util import parse_datetime_to_utc, build_game_slug, normalize_team_name, derive_team_name_only
+from .util import parse_datetime_to_utc, build_game_slug, normalize_team_name, derive_team_name_only, slugify_team_name_only
 from .supabase_repo import SupabaseRepo  # for type compatibility
 from .db_repo import DBRepo
 
@@ -99,18 +99,18 @@ def ingest_schedule_for_sport(client: httpx.Client, repo: SupabaseRepo | DBRepo,
         away_abbr = away.get("name", "")[0:3].upper() if not away.get("code") else away.get("code")
 
         date_obj = parse_datetime_to_utc(g.get("date") or g.get("time", ""))
-        local_ymd = date_obj.astimezone(ZoneInfo(TIMEZONE)).date().isoformat()
-        # Prefer team_name_only when available to match your existing convention
-        game_slug = build_game_slug(home_abbr, away_abbr, local_ymd)
+        utc_ymd = date_obj.date().isoformat()
+        # Build slug using UTC date and hyphenated team_name_only segments when available
+        game_slug = build_game_slug(home_abbr, away_abbr, utc_ymd)
         try:
             home_team_row = repo.get_team_by_sport_abbr(sport, home_abbr)  # type: ignore[attr-defined]
             away_team_row = repo.get_team_by_sport_abbr(sport, away_abbr)  # type: ignore[attr-defined]
             if home_team_row and away_team_row:
-                h_key = (home_team_row.get("team_name_only") or home_team_row.get("abbreviation") or home_abbr)
-                a_key = (away_team_row.get("team_name_only") or away_team_row.get("abbreviation") or away_abbr)
-                game_slug = build_game_slug(str(h_key).upper(), str(a_key).upper(), local_ymd)
-                norm_h = str(h_key).upper()
-                norm_a = str(a_key).upper()
+                h_key_raw = (home_team_row.get("team_name_only") or home_team_row.get("abbreviation") or home_abbr)
+                a_key_raw = (away_team_row.get("team_name_only") or away_team_row.get("abbreviation") or away_abbr)
+                norm_h = slugify_team_name_only(str(h_key_raw).upper())
+                norm_a = slugify_team_name_only(str(a_key_raw).upper())
+                game_slug = build_game_slug(norm_h, norm_a, utc_ymd)
             else:
                 # Fallback: try by normalized names/team_name_only
                 h_row = None
@@ -121,9 +121,9 @@ def ingest_schedule_for_sport(client: httpx.Client, repo: SupabaseRepo | DBRepo,
                 except Exception:
                     pass
                 if h_row and a_row:
-                    norm_h = str(h_row.get("team_name_only")).upper()
-                    norm_a = str(a_row.get("team_name_only")).upper()
-                    game_slug = build_game_slug(norm_h, norm_a, local_ymd)
+                    norm_h = slugify_team_name_only(str(h_row.get("team_name_only")).upper())
+                    norm_a = slugify_team_name_only(str(a_row.get("team_name_only")).upper())
+                    game_slug = build_game_slug(norm_h, norm_a, utc_ymd)
                 else:
                     norm_h = home_abbr
                     norm_a = away_abbr
@@ -158,7 +158,7 @@ def ingest_schedule_for_sport(client: httpx.Client, repo: SupabaseRepo | DBRepo,
         prepped.append({
             "g": g,
             "date_obj": date_obj,
-            "date_ymd": local_ymd,
+            "date_ymd": utc_ymd,
             "home_abbr": home_abbr,
             "away_abbr": away_abbr,
             "norm_h": norm_h,
@@ -236,23 +236,29 @@ def ingest_schedule_for_sport(client: httpx.Client, repo: SupabaseRepo | DBRepo,
             except Exception:
                 found = None
             if found:
-                # Update existing game by id; if slug changed, set game_id to canonical
-                updates = dict(row)
+                # Only update if important fields changed
+                updates = {}
+                # canonical slug may change after rules tweaks
                 updates["game_id"] = row["game_id"]
+                updates["start_time_utc"] = row["start_time_utc"]
+                updates["status"] = row["status"]
                 try:
                     repo.update_game_by_id(found["id"], updates)  # type: ignore[attr-defined]
+                    results["updated"] += 1
                 except Exception:
                     pass
             else:
-                before = repo.upsert_game(row)
+                before = repo.insert_game_if_not_exists(row) or {}
                 try:
                     repo.upsert_external_ref("game", before.get("id"), "api-sports", str(ext_id))  # type: ignore[attr-defined]
                 except Exception:
                     pass
+                if before:
+                    results["inserted"] += 1
         else:
-            before = repo.upsert_game(row)
-        # Supabase upsert returns row regardless; we cannot easily distinguish insert vs update here
-        results["updated"] += 1
+            before = repo.insert_game_if_not_exists(row)
+            if before:
+                results["inserted"] += 1
     return results
 
 

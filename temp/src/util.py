@@ -83,3 +83,20 @@ def deep_sum_numbers(value) -> int:
             pass
     return total
 
+
+def slugify_team_name_only(name: str) -> str:
+    """Return uppercase hyphenated team segment for slugs.
+
+    Examples:
+    - "Blue Jays" -> "BLUE-JAYS"
+    - "Red Sox" -> "RED-SOX"
+    - "Rangers" -> "RANGERS"
+    - None/empty -> ""
+    """
+    if not name:
+        return ""
+    s = normalize_team_name(str(name))
+    # Replace internal spaces with hyphen for multi-word team-name-only parts
+    s = s.replace(" ", "-")
+    return s
+

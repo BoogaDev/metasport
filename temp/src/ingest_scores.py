@@ -6,7 +6,7 @@ import httpx
 from .constants import SPORT_META
 from .supabase_repo import SupabaseRepo  # for type compatibility
 from .db_repo import DBRepo
-from .util import parse_datetime_to_utc, build_game_slug, deep_sum_numbers
+from .util import parse_datetime_to_utc, build_game_slug, deep_sum_numbers, slugify_team_name_only
 from zoneinfo import ZoneInfo
 from .config import TIMEZONE
 
@@ -95,25 +95,28 @@ def ingest_scores_for_sport(
             try:
                 home_team_row = repo.get_team_by_sport_abbr(sport, home_abbr)  # type: ignore[attr-defined]
                 away_team_row = repo.get_team_by_sport_abbr(sport, away_abbr)  # type: ignore[attr-defined]
-                h_key = (home_team_row or {}).get("team_name_only") or home_abbr
-                a_key = (away_team_row or {}).get("team_name_only") or away_abbr
+                h_key_raw = (home_team_row or {}).get("team_name_only") or home_abbr
+                a_key_raw = (away_team_row or {}).get("team_name_only") or away_abbr
+                norm_h = slugify_team_name_only(str(h_key_raw).upper())
+                norm_a = slugify_team_name_only(str(a_key_raw).upper())
                 local_ymd = date_obj.astimezone(ZoneInfo(TIMEZONE)).date().isoformat()
                 utc_ymd = date_obj.date().isoformat()
-                slug_local = build_game_slug(str(h_key).upper(), str(a_key).upper(), local_ymd)
-                slug_utc = build_game_slug(str(h_key).upper(), str(a_key).upper(), utc_ymd)
+                # Prioritize UTC slug first to align with schedule's UTC-based game_id
+                slug_utc = build_game_slug(norm_h, norm_a, utc_ymd)
+                slug_local = build_game_slug(norm_h, norm_a, local_ymd)
             except Exception:
                 local_ymd = date_obj.astimezone(ZoneInfo(TIMEZONE)).date().isoformat()
                 utc_ymd = date_obj.date().isoformat()
-                slug_local = build_game_slug(home_abbr, away_abbr, local_ymd)
-                slug_utc = build_game_slug(home_abbr, away_abbr, utc_ymd)
+                slug_utc = build_game_slug(slugify_team_name_only(home_abbr), slugify_team_name_only(away_abbr), utc_ymd)
+                slug_local = build_game_slug(slugify_team_name_only(home_abbr), slugify_team_name_only(away_abbr), local_ymd)
             # Guard: do not overwrite a final game with None scores or regress status
             try:
-                existing = repo.get_game_by_slug_full(slug_local)  # type: ignore[attr-defined]
-                hit_slug = slug_local if existing else None
+                existing = repo.get_game_by_slug_full(slug_utc)  # type: ignore[attr-defined]
+                hit_slug = slug_utc if existing else None
                 if not existing:
-                    existing = repo.get_game_by_slug_full(slug_utc)  # type: ignore[attr-defined]
+                    existing = repo.get_game_by_slug_full(slug_local)  # type: ignore[attr-defined]
                     if existing:
-                        hit_slug = slug_utc
+                        hit_slug = slug_local
             except Exception:
                 existing = None
                 hit_slug = None
