@@ -1,0 +1,204 @@
+{
+  "time_zone": "America/Los_Angeles",
+  "book": "DraftKings",
+  "sportsbook_id": "4d7a01fa-2e62-48d2-aa87-41820bebf031",
+  "game_count": 4,
+  "games": [
+    {
+      "game_id": "KNIGHTS_BLUES_2026-01-02",
+      "game_date": "2026-01-02",
+      "start_time": "2026-01-02 23:00:00+00",
+      "timestamp_utc": "2026-01-02 16:00:31+00",
+      "away_team": "VEGAS GOLDEN KNIGHTS",
+      "away_team_id": "5264c669-5ca4-4313-8360-0ecebc6eeb48",
+      "home_team": "ST. LOUIS BLUES",
+      "home_team_id": "e8576614-93f3-48c4-b747-dce8fd8d45ae",
+      "market": {
+        "moneyline": {
+          "away": {
+            "price_american": -155,
+            "price_european": 1.65
+          },
+          "home": {
+            "price_american": 130,
+            "price_european": 2.3
+          }
+        },
+        "spread": {
+          "away": -1.5,
+          "home": 1.5
+        },
+        "spread_odds": {
+          "away": {
+            "price_american": 164,
+            "price_european": 2.64
+          },
+          "home": {
+            "price_american": -198,
+            "price_european": 1.51
+          }
+        },
+        "total_goals": {
+          "number": 5.5
+        },
+        "total_goals_odds": {
+          "over": {
+            "price_american": -125,
+            "price_european": 1.8
+          },
+          "under": {
+            "price_american": 105,
+            "price_european": 2.05
+          }
+        }
+      }
+    },
+    {
+      "game_id": "RANGERS_PANTHERS_2026-01-02",
+      "game_date": "2026-01-02",
+      "start_time": "2026-01-03 04:00:00+00",
+      "timestamp_utc": "2026-01-02 16:00:31+00",
+      "away_team": "NEW YORK RANGERS",
+      "away_team_id": "e477eb9a-fe8c-447b-859c-092a73067a2e",
+      "home_team": "FLORIDA PANTHERS",
+      "home_team_id": "49f585ab-7b3e-47ff-8a1d-fd9144d42e94",
+      "market": {
+        "moneyline": {
+          "away": {
+            "price_american": 120,
+            "price_european": 2.2
+          },
+          "home": {
+            "price_american": -142,
+            "price_european": 1.7
+          }
+        },
+        "spread": {
+          "away": 1.5,
+          "home": -1.5
+        },
+        "spread_odds": {
+          "away": {
+            "price_american": -218,
+            "price_european": 1.46
+          },
+          "home": {
+            "price_american": 180,
+            "price_european": 2.8
+          }
+        },
+        "total_goals": {
+          "number": 5.5
+        },
+        "total_goals_odds": {
+          "over": {
+            "price_american": -115,
+            "price_european": 1.87
+          },
+          "under": {
+            "price_american": -105,
+            "price_european": 1.95
+          }
+        }
+      }
+    },
+    {
+      "game_id": "KRAKEN_CANUCKS_2026-01-02",
+      "game_date": "2026-01-02",
+      "start_time": "2026-01-03 06:30:00+00",
+      "timestamp_utc": "2026-01-02 16:00:31+00",
+      "away_team": "SEATTLE KRAKEN",
+      "away_team_id": "d4cf47e3-5bdc-4dd2-8255-5e961b2c0b54",
+      "home_team": "VANCOUVER CANUCKS",
+      "home_team_id": "2645c55b-1ac4-4ffa-bb5f-80bec90d1dfd",
+      "market": {
+        "moneyline": {
+          "away": {
+            "price_american": 142,
+            "price_european": 2.42
+          },
+          "home": {
+            "price_american": -170,
+            "price_european": 1.59
+          }
+        },
+        "spread": {
+          "away": 1.5,
+          "home": -1.5
+        },
+        "spread_odds": {
+          "away": {
+            "price_american": -180,
+            "price_european": 1.56
+          },
+          "home": {
+            "price_american": 150,
+            "price_european": 2.5
+          }
+        },
+        "total_goals": {
+          "number": 5.5
+        },
+        "total_goals_odds": {
+          "over": {
+            "price_american": -118,
+            "price_european": 1.85
+          },
+          "under": {
+            "price_american": -102,
+            "price_european": 1.98
+          }
+        }
+      }
+    },
+    {
+      "game_id": "WILD_DUCKS_2026-01-02",
+      "game_date": "2026-01-02",
+      "start_time": "2026-01-03 06:30:00+00",
+      "timestamp_utc": "2026-01-02 16:00:31+00",
+      "away_team": "MINNESOTA WILD",
+      "away_team_id": "fdd2627d-6187-4754-b109-249f756cf578",
+      "home_team": "ANAHEIM DUCKS",
+      "home_team_id": "aa5cd515-07b0-480e-b0b0-e31c5f51a872",
+      "market": {
+        "moneyline": {
+          "away": {
+            "price_american": -130,
+            "price_european": 1.77
+          },
+          "home": {
+            "price_american": 110,
+            "price_european": 2.1
+          }
+        },
+        "spread": {
+          "away": -1.5,
+          "home": 1.5
+        },
+        "spread_odds": {
+          "away": {
+            "price_american": 195,
+            "price_european": 2.95
+          },
+          "home": {
+            "price_american": -238,
+            "price_european": 1.42
+          }
+        },
+        "total_goals": {
+          "number": 6.5
+        },
+        "total_goals_odds": {
+          "over": {
+            "price_american": -105,
+            "price_european": 1.95
+          },
+          "under": {
+            "price_american": -115,
+            "price_european": 1.87
+          }
+        }
+      }
+    }
+  ]
+}

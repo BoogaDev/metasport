@@ -1,0 +1,253 @@
+{
+  "time_zone": "America/New_York",
+  "book": "DraftKings",
+  "sportsbook_id": "4d7a01fa-2e62-48d2-aa87-41820bebf031",
+  "game_count": 5,
+  "games": [
+    {
+      "game_id": "KNIGHTS_RED-WINGS_2026-03-04",
+      "game_date": "2026-03-04",
+      "start_time": "2026-03-05 00:00:00+00",
+      "timestamp_utc": "2026-03-04 13:00:41+00",
+      "away_team": "VEGAS GOLDEN KNIGHTS",
+      "away_team_id": "5264c669-5ca4-4313-8360-0ecebc6eeb48",
+      "home_team": "DETROIT RED WINGS",
+      "home_team_id": "2e7dd138-2fca-4cd1-914e-a39017d9e9f8",
+      "market": {
+        "moneyline": {
+          "away": {
+            "price_american": 114,
+            "price_european": 2.14
+          },
+          "home": {
+            "price_american": -135,
+            "price_european": 1.74
+          }
+        },
+        "spread": {
+          "away": 1.5,
+          "home": -1.5
+        },
+        "spread_odds": {
+          "away": {
+            "price_american": -238,
+            "price_european": 1.42
+          },
+          "home": {
+            "price_american": 195,
+            "price_european": 2.95
+          }
+        },
+        "total_goals": {
+          "number": 5.5
+        },
+        "total_goals_odds": {
+          "over": {
+            "price_american": -130,
+            "price_european": 1.77
+          },
+          "under": {
+            "price_american": 110,
+            "price_european": 2.1
+          }
+        }
+      }
+    },
+    {
+      "game_id": "MAPLE-LEAFS_DEVILS_2026-03-04",
+      "game_date": "2026-03-04",
+      "start_time": "2026-03-05 00:00:00+00",
+      "timestamp_utc": "2026-03-04 13:00:41+00",
+      "away_team": "TORONTO MAPLE LEAFS",
+      "away_team_id": "0e3c9d0f-eefc-49af-bdb9-cff90c475f58",
+      "home_team": "NEW JERSEY DEVILS",
+      "home_team_id": "ee552d63-0947-4868-a494-92310d84df43",
+      "market": {
+        "moneyline": {
+          "away": {
+            "price_american": 102,
+            "price_european": 2.02
+          },
+          "home": {
+            "price_american": -122,
+            "price_european": 1.82
+          }
+        },
+        "spread": {
+          "away": 1.5,
+          "home": -1.5
+        },
+        "spread_odds": {
+          "away": {
+            "price_american": -265,
+            "price_european": 1.38
+          },
+          "home": {
+            "price_american": 215,
+            "price_european": 3.15
+          }
+        },
+        "total_goals": {
+          "number": 5.5
+        },
+        "total_goals_odds": {
+          "over": {
+            "price_american": -125,
+            "price_european": 1.8
+          },
+          "under": {
+            "price_american": 105,
+            "price_european": 2.05
+          }
+        }
+      }
+    },
+    {
+      "game_id": "HURRICANES_CANUCKS_2026-03-04",
+      "game_date": "2026-03-04",
+      "start_time": "2026-03-05 03:00:00+00",
+      "timestamp_utc": "2026-03-04 13:00:41+00",
+      "away_team": "CAROLINA HURRICANES",
+      "away_team_id": "7731861f-4f68-4bd4-84c9-62373a1486eb",
+      "home_team": "VANCOUVER CANUCKS",
+      "home_team_id": "2645c55b-1ac4-4ffa-bb5f-80bec90d1dfd",
+      "market": {
+        "moneyline": {
+          "away": {
+            "price_american": -278,
+            "price_european": 1.36
+          },
+          "home": {
+            "price_american": 225,
+            "price_european": 3.25
+          }
+        },
+        "spread": {
+          "away": -1.5,
+          "home": 1.5
+        },
+        "spread_odds": {
+          "away": {
+            "price_american": -108,
+            "price_european": 1.93
+          },
+          "home": {
+            "price_american": -112,
+            "price_european": 1.89
+          }
+        },
+        "total_goals": {
+          "number": 6.5
+        },
+        "total_goals_odds": {
+          "over": {
+            "price_american": 114,
+            "price_european": 2.14
+          },
+          "under": {
+            "price_american": -135,
+            "price_european": 1.74
+          }
+        }
+      }
+    },
+    {
+      "game_id": "BLUES_KRAKEN_2026-03-04",
+      "game_date": "2026-03-04",
+      "start_time": "2026-03-05 03:00:00+00",
+      "timestamp_utc": "2026-03-04 13:00:41+00",
+      "away_team": "ST. LOUIS BLUES",
+      "away_team_id": "e8576614-93f3-48c4-b747-dce8fd8d45ae",
+      "home_team": "SEATTLE KRAKEN",
+      "home_team_id": "d4cf47e3-5bdc-4dd2-8255-5e961b2c0b54",
+      "market": {
+        "moneyline": {
+          "away": {
+            "price_american": 124,
+            "price_european": 2.24
+          },
+          "home": {
+            "price_american": -148,
+            "price_european": 1.68
+          }
+        },
+        "spread": {
+          "away": 1.5,
+          "home": -1.5
+        },
+        "spread_odds": {
+          "away": {
+            "price_american": -218,
+            "price_european": 1.46
+          },
+          "home": {
+            "price_american": 180,
+            "price_european": 2.8
+          }
+        },
+        "total_goals": {
+          "number": 5.5
+        },
+        "total_goals_odds": {
+          "over": {
+            "price_american": -122,
+            "price_european": 1.82
+          },
+          "under": {
+            "price_american": 102,
+            "price_european": 2.02
+          }
+        }
+      }
+    },
+    {
+      "game_id": "ISLANDERS_DUCKS_2026-03-04",
+      "game_date": "2026-03-04",
+      "start_time": "2026-03-05 03:00:00+00",
+      "timestamp_utc": "2026-03-04 13:00:41+00",
+      "away_team": "NEW YORK ISLANDERS",
+      "away_team_id": "092d6e8a-b229-497e-b988-dc42698e32bf",
+      "home_team": "ANAHEIM DUCKS",
+      "home_team_id": "aa5cd515-07b0-480e-b0b0-e31c5f51a872",
+      "market": {
+        "moneyline": {
+          "away": {
+            "price_american": -110,
+            "price_european": 1.91
+          },
+          "home": {
+            "price_american": -110,
+            "price_european": 1.91
+          }
+        },
+        "spread": {
+          "away": 1.5,
+          "home": -1.5
+        },
+        "spread_odds": {
+          "away": {
+            "price_american": -278,
+            "price_european": 1.36
+          },
+          "home": {
+            "price_american": 225,
+            "price_european": 3.25
+          }
+        },
+        "total_goals": {
+          "number": 6.5
+        },
+        "total_goals_odds": {
+          "over": {
+            "price_american": -115,
+            "price_european": 1.87
+          },
+          "under": {
+            "price_american": -105,
+            "price_european": 1.95
+          }
+        }
+      }
+    }
+  ]
+}

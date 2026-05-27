@@ -1,0 +1,837 @@
+{
+  "time_zone": "America/Los_Angeles",
+  "book": "DraftKings",
+  "sportsbook_id": "4d7a01fa-2e62-48d2-aa87-41820bebf031",
+  "game_count": 16,
+  "games": [
+    {
+      "game_id": "KINGS_JETS_2025-10-11",
+      "game_date": "2025-10-11",
+      "start_time": "2025-10-11 20:30:00+00",
+      "timestamp_utc": "2025-10-11 19:36:45+00",
+      "away_team": "LOS ANGELES KINGS",
+      "away_team_id": "883a4e4e-1b4e-4285-a5d2-2dba7cd0bc83",
+      "home_team": "WINNIPEG JETS",
+      "home_team_id": "4aec6908-1ee7-4fa1-91dd-169c1e61f8f8",
+      "market": {
+        "moneyline": {
+          "away": {
+            "price_american": 114,
+            "price_european": 2.14
+          },
+          "home": {
+            "price_american": -135,
+            "price_european": 1.74
+          }
+        },
+        "spread": {
+          "away": 1.5,
+          "home": -1.5
+        },
+        "spread_odds": {
+          "away": {
+            "price_american": -230,
+            "price_european": 1.43
+          },
+          "home": {
+            "price_american": 190,
+            "price_european": 2.9
+          }
+        },
+        "total_goals": {
+          "number": 5.5
+        },
+        "total_goals_odds": {
+          "over": {
+            "price_american": -102,
+            "price_european": 1.98
+          },
+          "under": {
+            "price_american": -118,
+            "price_european": 1.85
+          }
+        }
+      }
+    },
+    {
+      "game_id": "BLUES_FLAMES_2025-10-11",
+      "game_date": "2025-10-11",
+      "start_time": "2025-10-11 23:00:00+00",
+      "timestamp_utc": "2025-10-11 19:36:45+00",
+      "away_team": "ST. LOUIS BLUES",
+      "away_team_id": "e8576614-93f3-48c4-b747-dce8fd8d45ae",
+      "home_team": "CALGARY FLAMES",
+      "home_team_id": "68b5e708-9c02-4ecb-a296-8de53c2305c0",
+      "market": {
+        "moneyline": {
+          "away": {
+            "price_american": -125,
+            "price_european": 1.8
+          },
+          "home": {
+            "price_american": 105,
+            "price_european": 2.05
+          }
+        },
+        "spread": {
+          "away": -1.5,
+          "home": 1.5
+        },
+        "spread_odds": {
+          "away": {
+            "price_american": 200,
+            "price_european": 3.0
+          },
+          "home": {
+            "price_american": -245,
+            "price_european": 1.41
+          }
+        },
+        "total_goals": {
+          "number": 5.5
+        },
+        "total_goals_odds": {
+          "over": {
+            "price_american": -112,
+            "price_european": 1.89
+          },
+          "under": {
+            "price_american": -108,
+            "price_european": 1.93
+          }
+        }
+      }
+    },
+    {
+      "game_id": "SENATORS_PANTHERS_2025-10-11",
+      "game_date": "2025-10-11",
+      "start_time": "2025-10-12 02:00:00+00",
+      "timestamp_utc": "2025-10-11 19:36:45+00",
+      "away_team": "OTTAWA SENATORS",
+      "away_team_id": "d1ed899a-5158-495a-8ea2-05ef3de042ce",
+      "home_team": "FLORIDA PANTHERS",
+      "home_team_id": "49f585ab-7b3e-47ff-8a1d-fd9144d42e94",
+      "market": {
+        "moneyline": {
+          "away": {
+            "price_american": 120,
+            "price_european": 2.2
+          },
+          "home": {
+            "price_american": -142,
+            "price_european": 1.7
+          }
+        },
+        "spread": {
+          "away": 1.5,
+          "home": -1.5
+        },
+        "spread_odds": {
+          "away": {
+            "price_american": -205,
+            "price_european": 1.49
+          },
+          "home": {
+            "price_american": 170,
+            "price_european": 2.7
+          }
+        },
+        "total_goals": {
+          "number": 5.5
+        },
+        "total_goals_odds": {
+          "over": {
+            "price_american": -118,
+            "price_european": 1.85
+          },
+          "under": {
+            "price_american": -102,
+            "price_european": 1.98
+          }
+        }
+      }
+    },
+    {
+      "game_id": "RANGERS_PENGUINS_2025-10-11",
+      "game_date": "2025-10-11",
+      "start_time": "2025-10-12 02:00:00+00",
+      "timestamp_utc": "2025-10-11 19:36:45+00",
+      "away_team": "NEW YORK RANGERS",
+      "away_team_id": "e477eb9a-fe8c-447b-859c-092a73067a2e",
+      "home_team": "PITTSBURGH PENGUINS",
+      "home_team_id": "7999dc5f-0184-49bd-8c69-274631629a90",
+      "market": {
+        "moneyline": {
+          "away": {
+            "price_american": -142,
+            "price_european": 1.7
+          },
+          "home": {
+            "price_american": 120,
+            "price_european": 2.2
+          }
+        },
+        "spread": {
+          "away": -1.5,
+          "home": 1.5
+        },
+        "spread_odds": {
+          "away": {
+            "price_american": 170,
+            "price_european": 2.7
+          },
+          "home": {
+            "price_american": -205,
+            "price_european": 1.49
+          }
+        },
+        "total_goals": {
+          "number": 6.5
+        },
+        "total_goals_odds": {
+          "over": {
+            "price_american": 114,
+            "price_european": 2.14
+          },
+          "under": {
+            "price_american": -135,
+            "price_european": 1.74
+          }
+        }
+      }
+    },
+    {
+      "game_id": "MAPLE-LEAFS_RED-WINGS_2025-10-11",
+      "game_date": "2025-10-11",
+      "start_time": "2025-10-12 02:00:00+00",
+      "timestamp_utc": "2025-10-11 19:36:45+00",
+      "away_team": "TORONTO MAPLE LEAFS",
+      "away_team_id": "0e3c9d0f-eefc-49af-bdb9-cff90c475f58",
+      "home_team": "DETROIT RED WINGS",
+      "home_team_id": "2e7dd138-2fca-4cd1-914e-a39017d9e9f8",
+      "market": {
+        "moneyline": {
+          "away": {
+            "price_american": -142,
+            "price_european": 1.7
+          },
+          "home": {
+            "price_american": 120,
+            "price_european": 2.2
+          }
+        },
+        "spread": {
+          "away": -1.5,
+          "home": 1.5
+        },
+        "spread_odds": {
+          "away": {
+            "price_american": 170,
+            "price_european": 2.7
+          },
+          "home": {
+            "price_american": -205,
+            "price_european": 1.49
+          }
+        },
+        "total_goals": {
+          "number": 5.5
+        },
+        "total_goals_odds": {
+          "over": {
+            "price_american": -135,
+            "price_european": 1.74
+          },
+          "under": {
+            "price_american": 114,
+            "price_european": 2.14
+          }
+        }
+      }
+    },
+    {
+      "game_id": "DEVILS_LIGHTNING_2025-10-11",
+      "game_date": "2025-10-11",
+      "start_time": "2025-10-12 02:00:00+00",
+      "timestamp_utc": "2025-10-11 19:36:45+00",
+      "away_team": "NEW JERSEY DEVILS",
+      "away_team_id": "ee552d63-0947-4868-a494-92310d84df43",
+      "home_team": "TAMPA BAY LIGHTNING",
+      "home_team_id": "2a500e85-0e26-41e1-91d0-492f8a017a4a",
+      "market": {
+        "moneyline": {
+          "away": {
+            "price_american": 124,
+            "price_european": 2.24
+          },
+          "home": {
+            "price_american": -148,
+            "price_european": 1.68
+          }
+        },
+        "spread": {
+          "away": 1.5,
+          "home": -1.5
+        },
+        "spread_odds": {
+          "away": {
+            "price_american": -205,
+            "price_european": 1.49
+          },
+          "home": {
+            "price_american": 170,
+            "price_european": 2.7
+          }
+        },
+        "total_goals": {
+          "number": 6.5
+        },
+        "total_goals_odds": {
+          "over": {
+            "price_american": 110,
+            "price_european": 2.1
+          },
+          "under": {
+            "price_american": -130,
+            "price_european": 1.77
+          }
+        }
+      }
+    },
+    {
+      "game_id": "SABRES_BRUINS_2025-10-11",
+      "game_date": "2025-10-11",
+      "start_time": "2025-10-12 02:00:00+00",
+      "timestamp_utc": "2025-10-11 19:36:45+00",
+      "away_team": "BUFFALO SABRES",
+      "away_team_id": "d39c2fbd-4307-49ed-9aac-1edd08ad883f",
+      "home_team": "BOSTON BRUINS",
+      "home_team_id": "8560a0ea-9a86-4c1c-b1c7-95da5faccbed",
+      "market": {
+        "moneyline": {
+          "away": {
+            "price_american": -105,
+            "price_european": 1.95
+          },
+          "home": {
+            "price_american": -115,
+            "price_european": 1.87
+          }
+        },
+        "spread": {
+          "away": 1.5,
+          "home": -1.5
+        },
+        "spread_odds": {
+          "away": {
+            "price_american": -265,
+            "price_european": 1.38
+          },
+          "home": {
+            "price_american": 215,
+            "price_european": 3.15
+          }
+        },
+        "total_goals": {
+          "number": 6.5
+        },
+        "total_goals_odds": {
+          "over": {
+            "price_american": 114,
+            "price_european": 2.14
+          },
+          "under": {
+            "price_american": -135,
+            "price_european": 1.74
+          }
+        }
+      }
+    },
+    {
+      "game_id": "FLYERS_HURRICANES_2025-10-11",
+      "game_date": "2025-10-11",
+      "start_time": "2025-10-12 02:00:00+00",
+      "timestamp_utc": "2025-10-11 19:36:45+00",
+      "away_team": "PHILADELPHIA FLYERS",
+      "away_team_id": "73f4a80f-5652-4ffe-a542-e1b09ee1a49c",
+      "home_team": "CAROLINA HURRICANES",
+      "home_team_id": "7731861f-4f68-4bd4-84c9-62373a1486eb",
+      "market": {
+        "moneyline": {
+          "away": {
+            "price_american": 235,
+            "price_european": 3.35
+          },
+          "home": {
+            "price_american": -290,
+            "price_european": 1.34
+          }
+        },
+        "spread": {
+          "away": 1.5,
+          "home": -1.5
+        },
+        "spread_odds": {
+          "away": {
+            "price_american": -108,
+            "price_european": 1.93
+          },
+          "home": {
+            "price_american": -112,
+            "price_european": 1.89
+          }
+        },
+        "total_goals": {
+          "number": 5.5
+        },
+        "total_goals_odds": {
+          "over": {
+            "price_american": -135,
+            "price_european": 1.74
+          },
+          "under": {
+            "price_american": 114,
+            "price_european": 2.14
+          }
+        }
+      }
+    },
+    {
+      "game_id": "CAPITALS_ISLANDERS_2025-10-11",
+      "game_date": "2025-10-11",
+      "start_time": "2025-10-12 02:00:00+00",
+      "timestamp_utc": "2025-10-11 19:36:45+00",
+      "away_team": "WASHINGTON CAPITALS",
+      "away_team_id": "8311f401-c03d-4cc7-aa4a-2205eb88f0a4",
+      "home_team": "NEW YORK ISLANDERS",
+      "home_team_id": "092d6e8a-b229-497e-b988-dc42698e32bf",
+      "market": {
+        "moneyline": {
+          "away": {
+            "price_american": -118,
+            "price_european": 1.85
+          },
+          "home": {
+            "price_american": -102,
+            "price_european": 1.98
+          }
+        },
+        "spread": {
+          "away": -1.5,
+          "home": 1.5
+        },
+        "spread_odds": {
+          "away": {
+            "price_american": 215,
+            "price_european": 3.15
+          },
+          "home": {
+            "price_american": -265,
+            "price_european": 1.38
+          }
+        },
+        "total_goals": {
+          "number": 5.5
+        },
+        "total_goals_odds": {
+          "over": {
+            "price_american": -112,
+            "price_european": 1.89
+          },
+          "under": {
+            "price_american": -108,
+            "price_european": 1.93
+          }
+        }
+      }
+    },
+    {
+      "game_id": "CANADIENS_BLACKHAWKS_2025-10-11",
+      "game_date": "2025-10-11",
+      "start_time": "2025-10-12 02:00:00+00",
+      "timestamp_utc": "2025-10-11 19:36:45+00",
+      "away_team": "MONTREAL CANADIENS",
+      "away_team_id": "5d0251cf-40b3-4ba3-9f38-48f3b7d0beeb",
+      "home_team": "CHICAGO BLACKHAWKS",
+      "home_team_id": "c3dc2e4f-445a-480f-9ab5-7d74048800ad",
+      "market": {
+        "moneyline": {
+          "away": {
+            "price_american": -166,
+            "price_european": 1.6
+          },
+          "home": {
+            "price_american": 140,
+            "price_european": 2.4
+          }
+        },
+        "spread": {
+          "away": -1.5,
+          "home": 1.5
+        },
+        "spread_odds": {
+          "away": {
+            "price_american": 160,
+            "price_european": 2.6
+          },
+          "home": {
+            "price_american": -192,
+            "price_european": 1.52
+          }
+        },
+        "total_goals": {
+          "number": 6.5
+        },
+        "total_goals_odds": {
+          "over": {
+            "price_american": 114,
+            "price_european": 2.14
+          },
+          "under": {
+            "price_american": -135,
+            "price_european": 1.74
+          }
+        }
+      }
+    },
+    {
+      "game_id": "BLUE-JACKETS_WILD_2025-10-11",
+      "game_date": "2025-10-11",
+      "start_time": "2025-10-12 03:00:00+00",
+      "timestamp_utc": "2025-10-11 19:36:45+00",
+      "away_team": "COLUMBUS BLUE JACKETS",
+      "away_team_id": "bf5df02e-bdcf-49aa-befd-d7b5c608f41c",
+      "home_team": "MINNESOTA WILD",
+      "home_team_id": "fdd2627d-6187-4754-b109-249f756cf578",
+      "market": {
+        "moneyline": {
+          "away": {
+            "price_american": 136,
+            "price_european": 2.36
+          },
+          "home": {
+            "price_american": -162,
+            "price_european": 1.62
+          }
+        },
+        "spread": {
+          "away": 1.5,
+          "home": -1.5
+        },
+        "spread_odds": {
+          "away": {
+            "price_american": -192,
+            "price_european": 1.52
+          },
+          "home": {
+            "price_american": 160,
+            "price_european": 2.6
+          }
+        },
+        "total_goals": {
+          "number": 5.5
+        },
+        "total_goals_odds": {
+          "over": {
+            "price_american": -135,
+            "price_european": 1.74
+          },
+          "under": {
+            "price_american": 114,
+            "price_european": 2.14
+          }
+        }
+      }
+    },
+    {
+      "game_id": "MAMMOTH_PREDATORS_2025-10-11",
+      "game_date": "2025-10-11",
+      "start_time": "2025-10-12 03:00:00+00",
+      "timestamp_utc": "2025-10-11 19:36:45+00",
+      "away_team": "UTAH HOCKEY CLUB",
+      "away_team_id": "663d5065-bbc8-403e-80b1-d9a0ce98c870",
+      "home_team": "NASHVILLE PREDATORS",
+      "home_team_id": "4b7f9bb3-b359-4e6a-a03f-7cfecc64ac05",
+      "market": {
+        "moneyline": {
+          "away": {
+            "price_american": -125,
+            "price_european": 1.8
+          },
+          "home": {
+            "price_american": 105,
+            "price_european": 2.05
+          }
+        },
+        "spread": {
+          "away": -1.5,
+          "home": 1.5
+        },
+        "spread_odds": {
+          "away": {
+            "price_american": 210,
+            "price_european": 3.1
+          },
+          "home": {
+            "price_american": -258,
+            "price_european": 1.39
+          }
+        },
+        "total_goals": {
+          "number": 5.5
+        },
+        "total_goals_odds": {
+          "over": {
+            "price_american": -122,
+            "price_european": 1.82
+          },
+          "under": {
+            "price_american": 102,
+            "price_european": 2.02
+          }
+        }
+      }
+    },
+    {
+      "game_id": "STARS_AVALANCHE_2025-10-11",
+      "game_date": "2025-10-11",
+      "start_time": "2025-10-12 04:00:00+00",
+      "timestamp_utc": "2025-10-11 19:36:45+00",
+      "away_team": "DALLAS STARS",
+      "away_team_id": "b5f73b54-8d22-4faf-aef4-9fdae8ed85a3",
+      "home_team": "COLORADO AVALANCHE",
+      "home_team_id": "52958cbb-f1bc-4dbc-9449-8b2d53aa60ba",
+      "market": {
+        "moneyline": {
+          "away": {
+            "price_american": 120,
+            "price_european": 2.2
+          },
+          "home": {
+            "price_american": -142,
+            "price_european": 1.7
+          }
+        },
+        "spread": {
+          "away": 1.5,
+          "home": -1.5
+        },
+        "spread_odds": {
+          "away": {
+            "price_american": -205,
+            "price_european": 1.49
+          },
+          "home": {
+            "price_american": 170,
+            "price_european": 2.7
+          }
+        },
+        "total_goals": {
+          "number": 6.5
+        },
+        "total_goals_odds": {
+          "over": {
+            "price_american": 110,
+            "price_european": 2.1
+          },
+          "under": {
+            "price_american": -130,
+            "price_european": 1.77
+          }
+        }
+      }
+    },
+    {
+      "game_id": "KNIGHTS_KRAKEN_2025-10-11",
+      "game_date": "2025-10-11",
+      "start_time": "2025-10-12 05:00:00+00",
+      "timestamp_utc": "2025-10-11 19:36:45+00",
+      "away_team": "VEGAS GOLDEN KNIGHTS",
+      "away_team_id": "5264c669-5ca4-4313-8360-0ecebc6eeb48",
+      "home_team": "SEATTLE KRAKEN",
+      "home_team_id": "d4cf47e3-5bdc-4dd2-8255-5e961b2c0b54",
+      "market": {
+        "moneyline": {
+          "away": {
+            "price_american": -170,
+            "price_european": 1.59
+          },
+          "home": {
+            "price_american": 142,
+            "price_european": 2.42
+          }
+        },
+        "spread": {
+          "away": -1.5,
+          "home": 1.5
+        },
+        "spread_odds": {
+          "away": {
+            "price_american": 150,
+            "price_european": 2.5
+          },
+          "home": {
+            "price_american": -180,
+            "price_european": 1.56
+          }
+        },
+        "total_goals": {
+          "number": 6.5
+        },
+        "total_goals_odds": {
+          "over": {
+            "price_american": 114,
+            "price_european": 2.14
+          },
+          "under": {
+            "price_american": -135,
+            "price_european": 1.74
+          }
+        }
+      }
+    },
+    {
+      "game_id": "CANUCKS_OILERS_2025-10-11",
+      "game_date": "2025-10-11",
+      "start_time": "2025-10-12 05:00:00+00",
+      "timestamp_utc": "2025-10-11 19:36:45+00",
+      "away_team": "VANCOUVER CANUCKS",
+      "away_team_id": "2645c55b-1ac4-4ffa-bb5f-80bec90d1dfd",
+      "home_team": "EDMONTON OILERS",
+      "home_team_id": "b29e8bb7-1e53-4c14-a70b-bd24f5cd197b",
+      "market": {
+        "moneyline": {
+          "away": {
+            "price_american": 145,
+            "price_european": 2.45
+          },
+          "home": {
+            "price_american": -175,
+            "price_european": 1.57
+          }
+        },
+        "spread": {
+          "away": 1.5,
+          "home": -1.5
+        },
+        "spread_odds": {
+          "away": {
+            "price_american": -180,
+            "price_european": 1.56
+          },
+          "home": {
+            "app": "photos",
+            "entities": [
+              {
+                "text": "NHL Odds",
+                "type": "other"
+              },
+              {
+                "text": "Sportsbook",
+                "type": "other"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "game_id": "GOLDEN-KNIGHTS_KRAKEN_2025-10-11",
+      "game_date": "2025-10-11",
+      "start_time": "2025-10-11 22:00:00-07",
+      "timestamp_utc": "2025-10-11 19:36:46+00",
+      "away_team": "VEGAS GOLDEN KNIGHTS",
+      "away_team_id": "5264c669-5ca4-4313-8360-0ecebc6eeb48",
+      "home_team": "SEATTLE KRAKEN",
+      "home_team_id": "d4cf47e3-5bdc-4dd2-8255-5e961b2c0b54",
+      "market": {
+        "moneyline": {
+          "away": {
+            "price_american": -180,
+            "price_european": 1.56
+          },
+          "home": {
+            "price_american": 150,
+            "price_european": 2.5
+          }
+        },
+        "spread": {
+          "away": 1.5,
+          "home": -1.5
+        },
+        "spread_odds": {
+          "away": {
+            "price_american": -180,
+            "price_european": 1.56
+          },
+          "home": {
+            "price_american": 150,
+            "price_european": 2.5
+          }
+        },
+        "total_goals": {
+          "number": 6.5
+        },
+        "total_goals_odds": {
+          "over": {
+            "price_american": -175,
+            "price_european": 1.57
+          },
+          "under": {
+            "price_american": 142,
+            "price_european": 2.42
+          }
+        }
+      }
+    },
+    {
+      "game_id": "DUCKS_SHARKS_2025-10-11",
+      "game_date": "2025-10-11",
+      "start_time": "2025-10-11 22:00:00-07",
+      "timestamp_utc": "2025-10-11 19:36:46+00",
+      "away_team": "ANAHEIM DUCKS",
+      "away_team_id": "aa5cd515-07b0-480e-b0b0-e31c5f51a872",
+      "home_team": "SAN JOSE SHARKS",
+      "home_team_id": "64500875-111b-4edc-b47e-a3ad8149b70b",
+      "market": {
+        "moneyline": {
+          "away": {
+            "price_american": -238,
+            "price_european": 1.42
+          },
+          "home": {
+            "price_american": 195,
+            "price_european": 2.95
+          }
+        },
+        "spread": {
+          "away": 1.5,
+          "home": -1.5
+        },
+        "spread_odds": {
+          "away": {
+            "price_american": 195,
+            "price_european": 2.95
+          },
+          "home": {
+            "price_american": -238,
+            "price_european": 1.42
+          }
+        },
+        "total_goals": {
+          "number": 6.5
+        },
+        "total_goals_odds": {
+          "over": {
+            "price_american": 100,
+            "price_european": 2.0
+          },
+          "under": {
+            "price_american": -120,
+            "price_european": 1.83
+          }
+        }
+      }
+    }
+  ]
+}

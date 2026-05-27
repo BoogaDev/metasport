@@ -1,0 +1,302 @@
+{
+  "time_zone": "America/New_York",
+  "book": "DraftKings",
+  "sportsbook_id": "4d7a01fa-2e62-48d2-aa87-41820bebf031",
+  "game_count": 6,
+  "games": [
+    {
+      "game_id": "RANGERS_LIGHTNING_2026-04-15",
+      "game_date": "2026-04-15",
+      "start_time": "2026-04-15 23:00:00+00",
+      "timestamp_utc": "2026-04-15 12:00:40+00",
+      "away_team": "NEW YORK RANGERS",
+      "away_team_id": "e477eb9a-fe8c-447b-859c-092a73067a2e",
+      "home_team": "TAMPA BAY LIGHTNING",
+      "home_team_id": "2a500e85-0e26-41e1-91d0-492f8a017a4a",
+      "market": {
+        "moneyline": {
+          "away": {
+            "price_american": 105,
+            "price_european": 2.05
+          },
+          "home": {
+            "price_american": -125,
+            "price_european": 1.8
+          }
+        },
+        "spread": {
+          "away": 1.5,
+          "home": -1.5
+        },
+        "spread_odds": {
+          "away": {
+            "price_american": -218,
+            "price_european": 1.46
+          },
+          "home": {
+            "price_american": 180,
+            "price_european": 2.8
+          }
+        },
+        "total_goals": {
+          "number": 5.5
+        },
+        "total_goals_odds": {
+          "over": {
+            "price_american": -135,
+            "price_european": 1.74
+          },
+          "under": {
+            "price_american": 114,
+            "price_european": 2.14
+          }
+        }
+      }
+    },
+    {
+      "game_id": "STARS_SABRES_2026-04-15",
+      "game_date": "2026-04-15",
+      "start_time": "2026-04-15 23:00:00+00",
+      "timestamp_utc": "2026-04-15 12:00:40+00",
+      "away_team": "DALLAS STARS",
+      "away_team_id": "b5f73b54-8d22-4faf-aef4-9fdae8ed85a3",
+      "home_team": "BUFFALO SABRES",
+      "home_team_id": "d39c2fbd-4307-49ed-9aac-1edd08ad883f",
+      "market": {
+        "moneyline": {
+          "away": {
+            "price_american": -105,
+            "price_european": 1.95
+          },
+          "home": {
+            "price_american": -115,
+            "price_european": 1.87
+          }
+        },
+        "spread": {
+          "away": 1.5,
+          "home": -1.5
+        },
+        "spread_odds": {
+          "away": {
+            "price_american": -265,
+            "price_european": 1.38
+          },
+          "home": {
+            "price_american": 215,
+            "price_european": 3.15
+          }
+        },
+        "total_goals": {
+          "number": 6.5
+        },
+        "total_goals_odds": {
+          "over": {
+            "price_american": 110,
+            "price_european": 2.1
+          },
+          "under": {
+            "price_american": -130,
+            "price_european": 1.77
+          }
+        }
+      }
+    },
+    {
+      "game_id": "RED-WINGS_PANTHERS_2026-04-15",
+      "game_date": "2026-04-15",
+      "start_time": "2026-04-15 23:00:00+00",
+      "timestamp_utc": "2026-04-15 12:00:40+00",
+      "away_team": "DETROIT RED WINGS",
+      "away_team_id": "2e7dd138-2fca-4cd1-914e-a39017d9e9f8",
+      "home_team": "FLORIDA PANTHERS",
+      "home_team_id": "49f585ab-7b3e-47ff-8a1d-fd9144d42e94",
+      "market": {
+        "moneyline": {
+          "away": {
+            "price_american": -142,
+            "price_european": 1.7
+          },
+          "home": {
+            "price_american": 120,
+            "price_european": 2.2
+          }
+        },
+        "spread": {
+          "away": -1.5,
+          "home": 1.5
+        },
+        "spread_odds": {
+          "away": {
+            "price_american": 180,
+            "price_european": 2.8
+          },
+          "home": {
+            "price_american": -218,
+            "price_european": 1.46
+          }
+        },
+        "total_goals": {
+          "number": 6.5
+        },
+        "total_goals_odds": {
+          "over": {
+            "price_american": 110,
+            "price_european": 2.1
+          },
+          "under": {
+            "price_american": -130,
+            "price_european": 1.77
+          }
+        }
+      }
+    },
+    {
+      "game_id": "MAPLE-LEAFS_SENATORS_2026-04-15",
+      "game_date": "2026-04-15",
+      "start_time": "2026-04-15 23:30:00+00",
+      "timestamp_utc": "2026-04-15 12:00:40+00",
+      "away_team": "TORONTO MAPLE LEAFS",
+      "away_team_id": "0e3c9d0f-eefc-49af-bdb9-cff90c475f58",
+      "home_team": "OTTAWA SENATORS",
+      "home_team_id": "d1ed899a-5158-495a-8ea2-05ef3de042ce",
+      "market": {
+        "moneyline": {
+          "away": {
+            "price_american": 150,
+            "price_european": 2.5
+          },
+          "home": {
+            "price_american": -180,
+            "price_european": 1.56
+          }
+        },
+        "spread": {
+          "away": 1.5,
+          "home": -1.5
+        },
+        "spread_odds": {
+          "away": {
+            "price_american": -162,
+            "price_european": 1.62
+          },
+          "home": {
+            "price_american": 136,
+            "price_european": 2.36
+          }
+        },
+        "total_goals": {
+          "number": 6.5
+        },
+        "total_goals_odds": {
+          "over": {
+            "price_american": -105,
+            "price_european": 1.95
+          },
+          "under": {
+            "price_american": -115,
+            "price_european": 1.87
+          }
+        }
+      }
+    },
+    {
+      "game_id": "SHARKS_BLACKHAWKS_2026-04-15",
+      "game_date": "2026-04-15",
+      "start_time": "2026-04-16 00:30:00+00",
+      "timestamp_utc": "2026-04-15 12:00:40+00",
+      "away_team": "SAN JOSE SHARKS",
+      "away_team_id": "64500875-111b-4edc-b47e-a3ad8149b70b",
+      "home_team": "CHICAGO BLACKHAWKS",
+      "home_team_id": "c3dc2e4f-445a-480f-9ab5-7d74048800ad",
+      "market": {
+        "moneyline": {
+          "away": {
+            "price_american": -125,
+            "price_european": 1.8
+          },
+          "home": {
+            "price_american": 105,
+            "price_european": 2.05
+          }
+        },
+        "spread": {
+          "away": -1.5,
+          "home": 1.5
+        },
+        "spread_odds": {
+          "away": {
+            "price_american": 195,
+            "price_european": 2.95
+          },
+          "home": {
+            "price_american": -238,
+            "price_european": 1.42
+          }
+        },
+        "total_goals": {
+          "number": 6.5
+        },
+        "total_goals_odds": {
+          "over": {
+            "price_american": -110,
+            "price_european": 1.91
+          },
+          "under": {
+            "price_american": -110,
+            "price_european": 1.91
+          }
+        }
+      }
+    },
+    {
+      "game_id": "KRAKEN_KNIGHTS_2026-04-15",
+      "game_date": "2026-04-15",
+      "start_time": "2026-04-16 02:00:00+00",
+      "timestamp_utc": "2026-04-15 12:00:40+00",
+      "away_team": "SEATTLE KRAKEN",
+      "away_team_id": "d4cf47e3-5bdc-4dd2-8255-5e961b2c0b54",
+      "home_team": "VEGAS GOLDEN KNIGHTS",
+      "home_team_id": "5264c669-5ca4-4313-8360-0ecebc6eeb48",
+      "market": {
+        "moneyline": {
+          "away": {
+            "price_american": 240,
+            "price_european": 3.4
+          },
+          "home": {
+            "price_american": -298,
+            "price_european": 1.34
+          }
+        },
+        "spread": {
+          "away": 1.5,
+          "home": -1.5
+        },
+        "spread_odds": {
+          "away": {
+            "price_american": -108,
+            "price_european": 1.93
+          },
+          "home": {
+            "price_american": -112,
+            "price_european": 1.89
+          }
+        },
+        "total_goals": {
+          "number": 6.5
+        },
+        "total_goals_odds": {
+          "over": {
+            "price_american": 114,
+            "price_european": 2.14
+          },
+          "under": {
+            "price_american": -135,
+            "price_european": 1.74
+          }
+        }
+      }
+    }
+  ]
+}

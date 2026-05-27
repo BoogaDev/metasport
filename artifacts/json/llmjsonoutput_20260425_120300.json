@@ -1,0 +1,155 @@
+{
+  "time_zone": "America/New_York",
+  "book": "DraftKings",
+  "sportsbook_id": "4d7a01fa-2e62-48d2-aa87-41820bebf031",
+  "game_count": 3,
+  "games": [
+    {
+      "game_id": "HURRICANES_SENATORS_2026-04-25",
+      "game_date": "2026-04-25",
+      "start_time": "2026-04-25 19:00:00+00",
+      "timestamp_utc": "2026-04-25 12:00:35+00",
+      "away_team": "CAROLINA HURRICANES",
+      "away_team_id": "7731861f-4f68-4bd4-84c9-62373a1486eb",
+      "home_team": "OTTAWA SENATORS",
+      "home_team_id": "d1ed899a-5158-495a-8ea2-05ef3de042ce",
+      "market": {
+        "moneyline": {
+          "away": {
+            "price_american": -130,
+            "price_european": 1.77
+          },
+          "home": {
+            "price_american": 110,
+            "price_european": 2.1
+          }
+        },
+        "spread": {
+          "away": -1.5,
+          "home": 1.5
+        },
+        "spread_odds": {
+          "away": {
+            "price_american": 205,
+            "price_european": 3.05
+          },
+          "home": {
+            "price_american": -250,
+            "price_european": 1.4
+          }
+        },
+        "total_goals": {
+          "number": 5.5
+        },
+        "total_goals_odds": {
+          "over": {
+            "price_american": -120,
+            "price_european": 1.83
+          },
+          "under": {
+            "price_american": 100,
+            "price_european": 2.0
+          }
+        }
+      }
+    },
+    {
+      "game_id": "STARS_WILD_2026-04-25",
+      "game_date": "2026-04-25",
+      "start_time": "2026-04-25 21:30:00+00",
+      "timestamp_utc": "2026-04-25 12:00:35+00",
+      "away_team": "DALLAS STARS",
+      "away_team_id": "b5f73b54-8d22-4faf-aef4-9fdae8ed85a3",
+      "home_team": "MINNESOTA WILD",
+      "home_team_id": "fdd2627d-6187-4754-b109-249f756cf578",
+      "market": {
+        "moneyline": {
+          "away": {
+            "price_american": 114,
+            "price_european": 2.14
+          },
+          "home": {
+            "price_american": -135,
+            "price_european": 1.74
+          }
+        },
+        "spread": {
+          "away": 1.5,
+          "home": -1.5
+        },
+        "spread_odds": {
+          "away": {
+            "price_american": -218,
+            "price_european": 1.46
+          },
+          "home": {
+            "price_american": 180,
+            "price_european": 2.8
+          }
+        },
+        "total_goals": {
+          "number": 5.5
+        },
+        "total_goals_odds": {
+          "over": {
+            "price_american": -135,
+            "price_european": 1.74
+          },
+          "under": {
+            "price_american": 114,
+            "price_european": 2.14
+          }
+        }
+      }
+    },
+    {
+      "game_id": "PENGUINS_FLYERS_2026-04-25",
+      "game_date": "2026-04-25",
+      "start_time": "2026-04-26 00:00:00+00",
+      "timestamp_utc": "2026-04-25 12:00:35+00",
+      "away_team": "PITTSBURGH PENGUINS",
+      "away_team_id": "7999dc5f-0184-49bd-8c69-274631629a90",
+      "home_team": "PHILADELPHIA FLYERS",
+      "home_team_id": "73f4a80f-5652-4ffe-a542-e1b09ee1a49c",
+      "market": {
+        "moneyline": {
+          "away": {
+            "price_american": 100,
+            "price_european": 2.0
+          },
+          "home": {
+            "price_american": -120,
+            "price_european": 1.83
+          }
+        },
+        "spread": {
+          "away": 1.5,
+          "home": -1.5
+        },
+        "spread_odds": {
+          "away": {
+            "price_american": -258,
+            "price_european": 1.39
+          },
+          "home": {
+            "price_american": 210,
+            "price_european": 3.1
+          }
+        },
+        "total_goals": {
+          "number": 5.5
+        },
+        "total_goals_odds": {
+          "over": {
+            "price_american": -122,
+            "price_european": 1.82
+          },
+          "under": {
+            "price_american": 102,
+            "price_european": 2.02
+          }
+        }
+      }
+    }
+  ]
+}

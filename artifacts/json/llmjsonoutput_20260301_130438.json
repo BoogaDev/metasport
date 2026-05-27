@@ -1,0 +1,302 @@
+{
+  "time_zone": "America/Los_Angeles",
+  "book": "DraftKings",
+  "sportsbook_id": "4d7a01fa-2e62-48d2-aa87-41820bebf031",
+  "game_count": 6,
+  "games": [
+    {
+      "game_id": "KNIGHTS_PENGUINS_2026-03-01",
+      "game_date": "2026-03-01",
+      "start_time": "2026-03-01 21:00:00+00",
+      "timestamp_utc": "2026-03-01 16:00:31+00",
+      "away_team": "VEGAS GOLDEN KNIGHTS",
+      "away_team_id": "5264c669-5ca4-4313-8360-0ecebc6eeb48",
+      "home_team": "PITTSBURGH PENGUINS",
+      "home_team_id": "7999dc5f-0184-49bd-8c69-274631629a90",
+      "market": {
+        "moneyline": {
+          "away": {
+            "price_american": -148,
+            "price_european": 1.68
+          },
+          "home": {
+            "price_american": 124,
+            "price_european": 2.24
+          }
+        },
+        "spread": {
+          "away": -1.5,
+          "home": 1.5
+        },
+        "spread_odds": {
+          "away": {
+            "price_american": 170,
+            "price_european": 2.7
+          },
+          "home": {
+            "price_american": -205,
+            "price_european": 1.49
+          }
+        },
+        "total_goals": {
+          "number": 6.5
+        },
+        "total_goals_odds": {
+          "over": {
+            "price_american": 100,
+            "price_european": 2.0
+          },
+          "under": {
+            "price_american": -120,
+            "price_european": 1.83
+          }
+        }
+      }
+    },
+    {
+      "game_id": "BLACKHAWKS_MAMMOTH_2026-03-01",
+      "game_date": "2026-03-01",
+      "start_time": "2026-03-02 00:00:00+00",
+      "timestamp_utc": "2026-03-01 16:00:31+00",
+      "away_team": "CHICAGO BLACKHAWKS",
+      "away_team_id": "c3dc2e4f-445a-480f-9ab5-7d74048800ad",
+      "home_team": "UTAH HOCKEY CLUB",
+      "home_team_id": "663d5065-bbc8-403e-80b1-d9a0ce98c870",
+      "market": {
+        "moneyline": {
+          "away": {
+            "price_american": 240,
+            "price_european": 3.4
+          },
+          "home": {
+            "price_american": -298,
+            "price_european": 1.34
+          }
+        },
+        "spread": {
+          "away": 1.5,
+          "home": -1.5
+        },
+        "spread_odds": {
+          "away": {
+            "price_american": -105,
+            "price_european": 1.95
+          },
+          "home": {
+            "price_american": -115,
+            "price_european": 1.87
+          }
+        },
+        "total_goals": {
+          "number": 6.5
+        },
+        "total_goals_odds": {
+          "over": {
+            "price_american": 114,
+            "price_european": 2.14
+          },
+          "under": {
+            "price_american": -135,
+            "price_european": 1.74
+          }
+        }
+      }
+    },
+    {
+      "game_id": "JETS_SHARKS_2026-03-01",
+      "game_date": "2026-03-01",
+      "start_time": "2026-03-02 00:00:00+00",
+      "timestamp_utc": "2026-03-01 16:00:31+00",
+      "away_team": "WINNIPEG JETS",
+      "away_team_id": "4aec6908-1ee7-4fa1-91dd-169c1e61f8f8",
+      "home_team": "SAN JOSE SHARKS",
+      "home_team_id": "64500875-111b-4edc-b47e-a3ad8149b70b",
+      "market": {
+        "moneyline": {
+          "away": {
+            "price_american": -120,
+            "price_european": 1.83
+          },
+          "home": {
+            "price_american": 100,
+            "price_european": 2.0
+          }
+        },
+        "spread": {
+          "away": -1.5,
+          "home": 1.5
+        },
+        "spread_odds": {
+          "away": {
+            "price_american": 205,
+            "price_european": 3.05
+          },
+          "home": {
+            "price_american": -250,
+            "price_european": 1.4
+          }
+        },
+        "total_goals": {
+          "number": 6.5
+        },
+        "total_goals_odds": {
+          "over": {
+            "price_american": 100,
+            "price_european": 2.0
+          },
+          "under": {
+            "price_american": -120,
+            "price_european": 1.83
+          }
+        }
+      }
+    },
+    {
+      "game_id": "BLUES_WILD_2026-03-01",
+      "game_date": "2026-03-01",
+      "start_time": "2026-03-02 01:00:00+00",
+      "timestamp_utc": "2026-03-01 16:00:31+00",
+      "away_team": "ST. LOUIS BLUES",
+      "away_team_id": "e8576614-93f3-48c4-b747-dce8fd8d45ae",
+      "home_team": "MINNESOTA WILD",
+      "home_team_id": "fdd2627d-6187-4754-b109-249f756cf578",
+      "market": {
+        "moneyline": {
+          "away": {
+            "price_american": 200,
+            "price_european": 3.0
+          },
+          "home": {
+            "price_american": -245,
+            "price_european": 1.41
+          }
+        },
+        "spread": {
+          "away": 1.5,
+          "home": -1.5
+        },
+        "spread_odds": {
+          "away": {
+            "price_american": -122,
+            "price_european": 1.82
+          },
+          "home": {
+            "price_american": 102,
+            "price_european": 2.02
+          }
+        },
+        "total_goals": {
+          "number": 5.5
+        },
+        "total_goals_odds": {
+          "over": {
+            "price_american": -135,
+            "price_european": 1.74
+          },
+          "under": {
+            "price_american": 114,
+            "price_european": 2.14
+          }
+        }
+      }
+    },
+    {
+      "game_id": "PANTHERS_ISLANDERS_2026-03-01",
+      "game_date": "2026-03-01",
+      "start_time": "2026-03-02 02:30:00+00",
+      "timestamp_utc": "2026-03-01 16:00:31+00",
+      "away_team": "FLORIDA PANTHERS",
+      "away_team_id": "49f585ab-7b3e-47ff-8a1d-fd9144d42e94",
+      "home_team": "NEW YORK ISLANDERS",
+      "home_team_id": "092d6e8a-b229-497e-b988-dc42698e32bf",
+      "market": {
+        "moneyline": {
+          "away": {
+            "price_american": -135,
+            "price_european": 1.74
+          },
+          "home": {
+            "price_american": 114,
+            "price_european": 2.14
+          }
+        },
+        "spread": {
+          "away": -1.5,
+          "home": 1.5
+        },
+        "spread_odds": {
+          "away": {
+            "price_american": 190,
+            "price_european": 2.9
+          },
+          "home": {
+            "price_american": -230,
+            "price_european": 1.43
+          }
+        },
+        "total_goals": {
+          "number": 5.5
+        },
+        "total_goals_odds": {
+          "over": {
+            "price_american": -130,
+            "price_european": 1.77
+          },
+          "under": {
+            "price_american": 110,
+            "price_european": 2.1
+          }
+        }
+      }
+    },
+    {
+      "game_id": "FLAMES_DUCKS_2026-03-01",
+      "game_date": "2026-03-01",
+      "start_time": "2026-03-02 04:00:00+00",
+      "timestamp_utc": "2026-03-01 16:00:31+00",
+      "away_team": "CALGARY FLAMES",
+      "away_team_id": "68b5e708-9c02-4ecb-a296-8de53c2305c0",
+      "home_team": "ANAHEIM DUCKS",
+      "home_team_id": "aa5cd515-07b0-480e-b0b0-e31c5f51a872",
+      "market": {
+        "moneyline": {
+          "away": {
+            "price_american": 142,
+            "price_european": 2.42
+          },
+          "home": {
+            "price_american": -170,
+            "price_european": 1.59
+          }
+        },
+        "spread": {
+          "away": 1.5,
+          "home": -1.5
+        },
+        "spread_odds": {
+          "away": {
+            "price_american": -180,
+            "price_european": 1.56
+          },
+          "home": {
+            "price_american": 150,
+            "price_european": 2.5
+          }
+        },
+        "total_goals": {
+          "number": 6.5
+        },
+        "total_goals_odds": {
+          "over": {
+            "price_american": 100,
+            "price_european": 2.0
+          },
+          "under": {
+            "price_american": -120,
+            "price_european": 1.83
+          }
+        }
+      }
+    }
+  ]
+}

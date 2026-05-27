@@ -1,0 +1,57 @@
+{
+  "time_zone": "America/Los_Angeles",
+  "book": "DraftKings",
+  "sportsbook_id": "4d7a01fa-2e62-48d2-aa87-41820bebf031",
+  "game_count": 1,
+  "games": [
+    {
+      "game_id": "CAPITALS_RANGERS_2025-10-12",
+      "game_date": "2025-10-12",
+      "start_time": "2025-10-13 02:00:00+00",
+      "timestamp_utc": "2025-10-12 21:56:06.000000+00",
+      "away_team": "WASHINGTON CAPITALS",
+      "away_team_id": "8311f401-c03d-4cc7-aa4a-2205eb88f0a4",
+      "home_team": "NEW YORK RANGERS",
+      "home_team_id": "e477eb9a-fe8c-447b-859c-092a73067a2e",
+      "market": {
+        "moneyline": {
+          "away": {
+            "price_american": -112,
+            "price_european": 1.89
+          },
+          "home": {
+            "price_american": -108,
+            "price_european": 1.93
+          }
+        },
+        "spread": {
+          "away": -1.5,
+          "home": 1.5
+        },
+        "spread_odds": {
+          "away": {
+            "price_american": 220,
+            "price_european": 3.2
+          },
+          "home": {
+            "price_american": -270,
+            "price_european": 1.37
+          }
+        },
+        "total_goals": {
+          "number": 5.5
+        },
+        "total_goals_odds": {
+          "over": {
+            "price_american": -135,
+            "price_european": 1.74
+          },
+          "under": {
+            "price_american": 114,
+            "price_european": 2.14
+          }
+        }
+      }
+    }
+  ]
+}

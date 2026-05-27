@@ -1,0 +1,106 @@
+{
+  "time_zone": "America/Los_Angeles",
+  "book": "DraftKings",
+  "sportsbook_id": "4d7a01fa-2e62-48d2-aa87-41820bebf031",
+  "game_count": 2,
+  "games": [
+    {
+      "game_id": "BRUINS_SABRES_2026-03-25",
+      "game_date": "2026-03-25",
+      "start_time": "2026-03-25 23:30:00+00",
+      "timestamp_utc": "2026-03-25 08:00:40+00",
+      "away_team": "BOSTON BRUINS",
+      "away_team_id": "8560a0ea-9a86-4c1c-b1c7-95da5faccbed",
+      "home_team": "BUFFALO SABRES",
+      "home_team_id": "d39c2fbd-4307-49ed-9aac-1edd08ad883f",
+      "market": {
+        "moneyline": {
+          "away": {
+            "price_american": 170,
+            "price_european": 2.7
+          },
+          "home": {
+            "price_american": -205,
+            "price_european": 1.49
+          }
+        },
+        "spread": {
+          "away": 1.5,
+          "home": -1.5
+        },
+        "spread_odds": {
+          "away": {
+            "price_american": -148,
+            "price_european": 1.68
+          },
+          "home": {
+            "price_american": 124,
+            "price_european": 2.24
+          }
+        },
+        "total_goals": {
+          "number": 6.5
+        },
+        "total_goals_odds": {
+          "over": {
+            "price_american": -112,
+            "price_european": 1.89
+          },
+          "under": {
+            "price_american": -108,
+            "price_european": 1.93
+          }
+        }
+      }
+    },
+    {
+      "game_id": "RANGERS_MAPLE-LEAFS_2026-03-25",
+      "game_date": "2026-03-25",
+      "start_time": "2026-03-25 23:30:00+00",
+      "timestamp_utc": "2026-03-25 08:00:40+00",
+      "away_team": "NEW YORK RANGERS",
+      "away_team_id": "e477eb9a-fe8c-447b-859c-092a73067a2e",
+      "home_team": "TORONTO MAPLE LEAFS",
+      "home_team_id": "0e3c9d0f-eefc-49af-bdb9-cff90c475f58",
+      "market": {
+        "moneyline": {
+          "away": {
+            "price_american": -115,
+            "price_european": 1.87
+          },
+          "home": {
+            "price_american": -105,
+            "price_european": 1.95
+          }
+        },
+        "spread": {
+          "away": -1.5,
+          "home": 1.5
+        },
+        "spread_odds": {
+          "away": {
+            "price_american": 210,
+            "price_european": 3.1
+          },
+          "home": {
+            "price_american": -258,
+            "price_european": 1.39
+          }
+        },
+        "total_goals": {
+          "number": 6.5
+        },
+        "total_goals_odds": {
+          "over": {
+            "price_american": 110,
+            "price_european": 2.1
+          },
+          "under": {
+            "price_american": -130,
+            "price_european": 1.77
+          }
+        }
+      }
+    }
+  ]
+}

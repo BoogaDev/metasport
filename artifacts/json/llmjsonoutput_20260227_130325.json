@@ -1,0 +1,204 @@
+{
+  "time_zone": "America/Los_Angeles",
+  "book": "DraftKings",
+  "sportsbook_id": "4d7a01fa-2e62-48d2-aa87-41820bebf031",
+  "game_count": 4,
+  "games": [
+    {
+      "game_id": "SABRES_PANTHERS_2026-02-27",
+      "game_date": "2026-02-27",
+      "start_time": "2026-02-28 00:00:00+00",
+      "timestamp_utc": "2026-02-27 08:00:34.000000+00",
+      "away_team": "BUFFALO SABRES",
+      "away_team_id": "d39c2fbd-4307-49ed-9aac-1edd08ad883f",
+      "home_team": "FLORIDA PANTHERS",
+      "home_team_id": "49f585ab-7b3e-47ff-8a1d-fd9144d42e94",
+      "market": {
+        "moneyline": {
+          "away": {
+            "price_american": 100,
+            "price_european": 2.0
+          },
+          "home": {
+            "price_american": -120,
+            "price_european": 1.83
+          }
+        },
+        "spread": {
+          "away": 1.5,
+          "home": -1.5
+        },
+        "spread_odds": {
+          "away": {
+            "price_american": -258,
+            "price_european": 1.39
+          },
+          "home": {
+            "price_american": 210,
+            "price_european": 3.1
+          }
+        },
+        "total_goals": {
+          "number": 6.5
+        },
+        "total_goals_odds": {
+          "over": {
+            "price_american": 105,
+            "price_european": 2.05
+          },
+          "under": {
+            "price_american": -125,
+            "price_european": 1.8
+          }
+        }
+      }
+    },
+    {
+      "game_id": "KNIGHTS_CAPITALS_2026-02-27",
+      "game_date": "2026-02-27",
+      "start_time": "2026-02-28 00:00:00+00",
+      "timestamp_utc": "2026-02-27 08:00:34.000000+00",
+      "away_team": "VEGAS GOLDEN KNIGHTS",
+      "away_team_id": "5264c669-5ca4-4313-8360-0ecebc6eeb48",
+      "home_team": "WASHINGTON CAPITALS",
+      "home_team_id": "8311f401-c03d-4cc7-aa4a-2205eb88f0a4",
+      "market": {
+        "moneyline": {
+          "away": {
+            "price_american": -105,
+            "price_european": 1.95
+          },
+          "home": {
+            "price_american": -115,
+            "price_european": 1.87
+          }
+        },
+        "spread": {
+          "away": 1.5,
+          "home": -1.5
+        },
+        "spread_odds": {
+          "away": {
+            "price_american": -285,
+            "price_european": 1.35
+          },
+          "home": {
+            "price_american": 230,
+            "price_european": 3.3
+          }
+        },
+        "total_goals": {
+          "number": 5.5
+        },
+        "total_goals_odds": {
+          "over": {
+            "price_american": -125,
+            "price_european": 1.8
+          },
+          "under": {
+            "price_american": 105,
+            "price_european": 2.05
+          }
+        }
+      }
+    },
+    {
+      "game_id": "WILD_MAMMOTH_2026-02-27",
+      "game_date": "2026-02-27",
+      "start_time": "2026-02-28 02:00:00+00",
+      "timestamp_utc": "2026-02-27 08:00:34.000000+00",
+      "away_team": "MINNESOTA WILD",
+      "away_team_id": "fdd2627d-6187-4754-b109-249f756cf578",
+      "home_team": "UTAH HOCKEY CLUB",
+      "home_team_id": "663d5065-bbc8-403e-80b1-d9a0ce98c870",
+      "market": {
+        "moneyline": {
+          "away": {
+            "price_american": 114,
+            "price_european": 2.14
+          },
+          "home": {
+            "price_american": -135,
+            "price_european": 1.74
+          }
+        },
+        "spread": {
+          "away": 1.5,
+          "home": -1.5
+        },
+        "spread_odds": {
+          "away": {
+            "price_american": -225,
+            "price_european": 1.44
+          },
+          "home": {
+            "price_american": 185,
+            "price_european": 2.85
+          }
+        },
+        "total_goals": {
+          "number": 5.5
+        },
+        "total_goals_odds": {
+          "over": {
+            "price_american": -130,
+            "price_european": 1.77
+          },
+          "under": {
+            "price_american": 110,
+            "price_european": 2.1
+          }
+        }
+      }
+    },
+    {
+      "game_id": "JETS_DUCKS_2026-02-27",
+      "game_date": "2026-02-27",
+      "start_time": "2026-02-28 03:00:00+00",
+      "timestamp_utc": "2026-02-27 08:00:34.000000+00",
+      "away_team": "WINNIPEG JETS",
+      "away_team_id": "4aec6908-1ee7-4fa1-91dd-169c1e61f8f8",
+      "home_team": "ANAHEIM DUCKS",
+      "home_team_id": "aa5cd515-07b0-480e-b0b0-e31c5f51a872",
+      "market": {
+        "moneyline": {
+          "away": {
+            "price_american": 110,
+            "price_european": 2.1
+          },
+          "home": {
+            "price_american": -130,
+            "price_european": 1.77
+          }
+        },
+        "spread": {
+          "away": 1.5,
+          "home": -1.5
+        },
+        "spread_odds": {
+          "away": {
+            "price_american": -230,
+            "price_european": 1.43
+          },
+          "home": {
+            "price_american": 190,
+            "price_european": 2.9
+          }
+        },
+        "total_goals": {
+          "number": 6.5
+        },
+        "total_goals_odds": {
+          "over": {
+            "price_american": 110,
+            "price_european": 2.1
+          },
+          "under": {
+            "price_american": -130,
+            "price_european": 1.77
+          }
+        }
+      }
+    }
+  ]
+}

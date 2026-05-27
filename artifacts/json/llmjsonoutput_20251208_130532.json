@@ -1,0 +1,253 @@
+{
+  "time_zone": "America/Los_Angeles",
+  "book": "DraftKings",
+  "sportsbook_id": "4d7a01fa-2e62-48d2-aa87-41820bebf031",
+  "game_count": 5,
+  "games": [
+    {
+      "game_id": "LIGHTNING_MAPLE-LEAFS_2025-12-08",
+      "game_date": "2025-12-08",
+      "start_time": "2025-12-09 03:30:00+00",
+      "timestamp_utc": "2025-12-08 08:00:32+00",
+      "away_team": "TAMPA BAY LIGHTNING",
+      "away_team_id": "2a500e85-0e26-41e1-91d0-492f8a017a4a",
+      "home_team": "TORONTO MAPLE LEAFS",
+      "home_team_id": "0e3c9d0f-eefc-49af-bdb9-cff90c475f58",
+      "market": {
+        "moneyline": {
+          "away": {
+            "price_american": -115,
+            "price_european": 1.87
+          },
+          "home": {
+            "price_american": -105,
+            "price_european": 1.95
+          }
+        },
+        "spread": {
+          "away": -1.5,
+          "home": 1.5
+        },
+        "spread_odds": {
+          "away": {
+            "price_american": 220,
+            "price_european": 3.2
+          },
+          "home": {
+            "price_american": -270,
+            "price_european": 1.37
+          }
+        },
+        "total_goals": {
+          "number": 6.5
+        },
+        "total_goals_odds": {
+          "over": {
+            "price_american": 105,
+            "price_european": 2.05
+          },
+          "under": {
+            "price_american": -125,
+            "price_european": 1.8
+          }
+        }
+      }
+    },
+    {
+      "game_id": "KINGS_MAMMOTH_2025-12-08",
+      "game_date": "2025-12-08",
+      "start_time": "2025-12-09 05:00:00+00",
+      "timestamp_utc": "2025-12-08 08:00:32+00",
+      "away_team": "LOS ANGELES KINGS",
+      "away_team_id": "883a4e4e-1b4e-4285-a5d2-2dba7cd0bc83",
+      "home_team": "UTAH HOCKEY CLUB",
+      "home_team_id": "663d5065-bbc8-403e-80b1-d9a0ce98c870",
+      "market": {
+        "moneyline": {
+          "away": {
+            "price_american": -108,
+            "price_european": 1.93
+          },
+          "home": {
+            "price_american": -112,
+            "price_european": 1.89
+          }
+        },
+        "spread": {
+          "away": 1.5,
+          "home": -1.5
+        },
+        "spread_odds": {
+          "away": {
+            "price_american": -270,
+            "price_european": 1.37
+          },
+          "home": {
+            "price_american": 220,
+            "price_european": 3.2
+          }
+        },
+        "total_goals": {
+          "number": 5.5
+        },
+        "total_goals_odds": {
+          "over": {
+            "price_american": -110,
+            "price_european": 1.91
+          },
+          "under": {
+            "price_american": -110,
+            "price_european": 1.91
+          }
+        }
+      }
+    },
+    {
+      "game_id": "SABRES_FLAMES_2025-12-08",
+      "game_date": "2025-12-08",
+      "start_time": "2025-12-09 05:00:00+00",
+      "timestamp_utc": "2025-12-08 08:00:32+00",
+      "away_team": "BUFFALO SABRES",
+      "away_team_id": "d39c2fbd-4307-49ed-9aac-1edd08ad883f",
+      "home_team": "CALGARY FLAMES",
+      "home_team_id": "68b5e708-9c02-4ecb-a296-8de53c2305c0",
+      "market": {
+        "moneyline": {
+          "away": {
+            "price_american": -110,
+            "price_european": 1.91
+          },
+          "home": {
+            "price_american": -110,
+            "price_european": 1.91
+          }
+        },
+        "spread": {
+          "away": -1.5,
+          "home": 1.5
+        },
+        "spread_odds": {
+          "away": {
+            "price_american": 230,
+            "price_european": 3.3
+          },
+          "home": {
+            "price_american": -285,
+            "price_european": 1.35
+          }
+        },
+        "total_goals": {
+          "number": 6.5
+        },
+        "total_goals_odds": {
+          "over": {
+            "price_american": 114,
+            "price_european": 2.14
+          },
+          "under": {
+            "price_american": -135,
+            "price_european": 1.74
+          }
+        }
+      }
+    },
+    {
+      "game_id": "RED-WINGS_CANUCKS_2025-12-08",
+      "game_date": "2025-12-08",
+      "start_time": "2025-12-09 06:00:00+00",
+      "timestamp_utc": "2025-12-08 08:00:32+00",
+      "away_team": "DETROIT RED WINGS",
+      "away_team_id": "2e7dd138-2fca-4cd1-914e-a39017d9e9f8",
+      "home_team": "VANCOUVER CANUCKS",
+      "home_team_id": "2645c55b-1ac4-4ffa-bb5f-80bec90d1dfd",
+      "market": {
+        "moneyline": {
+          "away": {
+            "price_american": -125,
+            "price_european": 1.8
+          },
+          "home": {
+            "price_american": 105,
+            "price_european": 2.05
+          }
+        },
+        "spread": {
+          "away": -1.5,
+          "home": 1.5
+        },
+        "spread_odds": {
+          "away": {
+            "price_american": 205,
+            "price_european": 3.05
+          },
+          "home": {
+            "price_american": -250,
+            "price_european": 1.4
+          }
+        },
+        "total_goals": {
+          "number": 6.5
+        },
+        "total_goals_odds": {
+          "over": {
+            "price_american": 105,
+            "price_european": 2.05
+          },
+          "under": {
+            "price_american": -125,
+            "price_european": 1.8
+          }
+        }
+      }
+    },
+    {
+      "game_id": "WILD_KRAKEN_2025-12-08",
+      "game_date": "2025-12-08",
+      "start_time": "2025-12-09 06:00:00+00",
+      "timestamp_utc": "2025-12-08 08:00:32+00",
+      "away_team": "MINNESOTA WILD",
+      "away_team_id": "fdd2627d-6187-4754-b109-249f756cf578",
+      "home_team": "SEATTLE KRAKEN",
+      "home_team_id": "d4cf47e3-5bdc-4dd2-8255-5e961b2c0b54",
+      "market": {
+        "moneyline": {
+          "away": {
+            "price_american": -135,
+            "price_european": 1.74
+          },
+          "home": {
+            "price_american": 114,
+            "price_european": 2.14
+          }
+        },
+        "spread": {
+          "away": -1.5,
+          "home": 1.5
+        },
+        "spread_odds": {
+          "away": {
+            "price_american": 200,
+            "price_european": 3.0
+          },
+          "home": {
+            "price_american": -245,
+            "price_european": 1.41
+          }
+        },
+        "total_goals": {
+          "number": 5.5
+        },
+        "total_goals_odds": {
+          "over": {
+            "price_american": -105,
+            "price_european": 1.95
+          },
+          "under": {
+            "price_american": -115,
+            "price_european": 1.87
+          }
+        }
+      }
+    }
+  ]
+}

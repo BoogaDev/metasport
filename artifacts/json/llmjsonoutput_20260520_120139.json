@@ -1,0 +1,57 @@
+{
+  "time_zone": "America/Los_Angeles",
+  "book": "DraftKings",
+  "sportsbook_id": "4d7a01fa-2e62-48d2-aa87-41820bebf031",
+  "game_count": 1,
+  "games": [
+    {
+      "game_id": "KNIGHTS_AVALANCHE_2026-05-20",
+      "game_date": "2026-05-20",
+      "start_time": "2026-05-21 03:00:00+00",
+      "timestamp_utc": "2026-05-20 15:00:32+00",
+      "away_team": "VEGAS GOLDEN KNIGHTS",
+      "away_team_id": "5264c669-5ca4-4313-8360-0ecebc6eeb48",
+      "home_team": "COLORADO AVALANCHE",
+      "home_team_id": "52958cbb-f1bc-4dbc-9449-8b2d53aa60ba",
+      "market": {
+        "moneyline": {
+          "away": {
+            "price_american": 160,
+            "price_european": 2.6
+          },
+          "home": {
+            "price_american": -192,
+            "price_european": 1.52
+          }
+        },
+        "spread": {
+          "away": 1.5,
+          "home": -1.5
+        },
+        "spread_odds": {
+          "away": {
+            "price_american": -162,
+            "price_european": 1.62
+          },
+          "home": {
+            "price_american": 136,
+            "price_european": 2.36
+          }
+        },
+        "total_goals": {
+          "number": 6.5
+        },
+        "total_goals_odds": {
+          "over": {
+            "price_american": 102,
+            "price_european": 2.02
+          },
+          "under": {
+            "price_american": -122,
+            "price_european": 1.82
+          }
+        }
+      }
+    }
+  ]
+}

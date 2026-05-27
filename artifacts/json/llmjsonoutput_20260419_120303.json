@@ -1,0 +1,204 @@
+{
+  "time_zone": "America/New_York",
+  "book": "DraftKings",
+  "sportsbook_id": "4d7a01fa-2e62-48d2-aa87-41820bebf031",
+  "game_count": 4,
+  "games": [
+    {
+      "game_id": "KINGS_AVALANCHE_2026-04-19",
+      "game_date": "2026-04-19",
+      "start_time": "2026-04-19 19:00:00+00",
+      "timestamp_utc": "2026-04-19 12:00:40+00",
+      "away_team": "LOS ANGELES KINGS",
+      "away_team_id": "883a4e4e-1b4e-4285-a5d2-2dba7cd0bc83",
+      "home_team": "COLORADO AVALANCHE",
+      "home_team_id": "52958cbb-f1bc-4dbc-9449-8b2d53aa60ba",
+      "market": {
+        "moneyline": {
+          "away": {
+            "price_american": 225,
+            "price_european": 3.25
+          },
+          "home": {
+            "price_american": -278,
+            "price_european": 1.36
+          }
+        },
+        "spread": {
+          "away": 1.5,
+          "home": -1.5
+        },
+        "spread_odds": {
+          "away": {
+            "price_american": -108,
+            "price_european": 1.93
+          },
+          "home": {
+            "price_american": -112,
+            "price_european": 1.89
+          }
+        },
+        "total_goals": {
+          "number": 5.5
+        },
+        "total_goals_odds": {
+          "over": {
+            "price_american": -130,
+            "price_european": 1.77
+          },
+          "under": {
+            "price_american": 110,
+            "price_european": 2.1
+          }
+        }
+      }
+    },
+    {
+      "game_id": "CANADIENS_LIGHTNING_2026-04-19",
+      "game_date": "2026-04-19",
+      "start_time": "2026-04-19 22:00:00+00",
+      "timestamp_utc": "2026-04-19 12:00:40+00",
+      "away_team": "MONTREAL CANADIENS",
+      "away_team_id": "5d0251cf-40b3-4ba3-9f38-48f3b7d0beeb",
+      "home_team": "TAMPA BAY LIGHTNING",
+      "home_team_id": "2a500e85-0e26-41e1-91d0-492f8a017a4a",
+      "market": {
+        "moneyline": {
+          "away": {
+            "price_american": 154,
+            "price_european": 2.54
+          },
+          "home": {
+            "price_american": -185,
+            "price_european": 1.54
+          }
+        },
+        "spread": {
+          "away": 1.5,
+          "home": -1.5
+        },
+        "spread_odds": {
+          "away": {
+            "price_american": -155,
+            "price_european": 1.65
+          },
+          "home": {
+            "price_american": 130,
+            "price_european": 2.3
+          }
+        },
+        "total_goals": {
+          "number": 6.5
+        },
+        "total_goals_odds": {
+          "over": {
+            "price_american": 114,
+            "price_european": 2.14
+          },
+          "under": {
+            "price_american": -135,
+            "price_european": 1.74
+          }
+        }
+      }
+    },
+    {
+      "game_id": "BRUINS_SABRES_2026-04-19",
+      "game_date": "2026-04-19",
+      "start_time": "2026-04-19 23:30:00+00",
+      "timestamp_utc": "2026-04-19 12:00:40+00",
+      "away_team": "BOSTON BRUINS",
+      "away_team_id": "8560a0ea-9a86-4c1c-b1c7-95da5faccbed",
+      "home_team": "BUFFALO SABRES",
+      "home_team_id": "d39c2fbd-4307-49ed-9aac-1edd08ad883f",
+      "market": {
+        "moneyline": {
+          "away": {
+            "price_american": 140,
+            "price_european": 2.4
+          },
+          "home": {
+            "price_american": -166,
+            "price_european": 1.6
+          }
+        },
+        "spread": {
+          "away": 1.5,
+          "home": -1.5
+        },
+        "spread_odds": {
+          "away": {
+            "price_american": -185,
+            "price_european": 1.54
+          },
+          "home": {
+            "price_american": 154,
+            "price_european": 2.54
+          }
+        },
+        "total_goals": {
+          "number": 6.5
+        },
+        "total_goals_odds": {
+          "over": {
+            "price_american": 114,
+            "price_european": 2.14
+          },
+          "under": {
+            "price_american": -135,
+            "price_european": 1.74
+          }
+        }
+      }
+    },
+    {
+      "game_id": "MAMMOTH_KNIGHTS_2026-04-19",
+      "game_date": "2026-04-19",
+      "start_time": "2026-04-20 02:00:00+00",
+      "timestamp_utc": "2026-04-19 12:00:40+00",
+      "away_team": "UTAH HOCKEY CLUB",
+      "away_team_id": "663d5065-bbc8-403e-80b1-d9a0ce98c870",
+      "home_team": "VEGAS GOLDEN KNIGHTS",
+      "home_team_id": "5264c669-5ca4-4313-8360-0ecebc6eeb48",
+      "market": {
+        "moneyline": {
+          "away": {
+            "price_american": 130,
+            "price_european": 2.3
+          },
+          "home": {
+            "price_american": -155,
+            "price_european": 1.65
+          }
+        },
+        "spread": {
+          "away": 1.5,
+          "home": -1.5
+        },
+        "spread_odds": {
+          "away": {
+            "price_american": -192,
+            "price_european": 1.52
+          },
+          "home": {
+            "price_american": 160,
+            "price_european": 2.6
+          }
+        },
+        "total_goals": {
+          "number": 6.5
+        },
+        "total_goals_odds": {
+          "over": {
+            "price_american": 114,
+            "price_european": 2.14
+          },
+          "under": {
+            "price_american": -135,
+            "price_european": 1.74
+          }
+        }
+      }
+    }
+  ]
+}

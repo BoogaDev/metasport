@@ -109,6 +109,14 @@ def wait_page_ready(page) -> None:
     page.wait_for_timeout(1200)
 
 
+def apply_css_zoom(page, zoom: float) -> None:
+    try:
+        page.evaluate(f"document.body.style.zoom='{zoom}'")
+        page.wait_for_timeout(200)
+    except Exception:
+        pass
+
+
 def autoscroll_all(page, pause_ms: int = 400) -> None:
     last = 0
     while True:
@@ -252,6 +260,8 @@ class DBBase:
     def insert_market_selection(self, game_uuid: str, selection_type: str, period: str, participant_team_id: Optional[str], side: str, line: Optional[float], line_units: str) -> str: ...
     def insert_odds(self, market_selection_id: str, sportsbook_id: str, timestamp_utc_iso: str, price_american: int, price_european: Optional[float], source_note: str) -> None: ...
     def list_game_slugs_for_date(self, league: str, date_iso: str) -> List[str]: ...
+    def has_odds_for_selection(self, market_selection_id: str, sportsbook_id: str) -> bool: ...
+    def get_game_team_ids(self, game_uuid: str) -> Optional[Tuple[str, str]]: ...
 
 
 class DBPostgres(DBBase):
@@ -349,6 +359,25 @@ class DBPostgres(DBBase):
             rows = cur.fetchall() or []
             return [r["game_id"] for r in rows]
 
+    def has_odds_for_selection(self, market_selection_id: str, sportsbook_id: str) -> bool:
+        with self.conn.cursor() as cur:
+            cur.execute(
+                "select 1 from odds where market_selection_id=%s and sportsbook_id=%s limit 1",
+                (market_selection_id, sportsbook_id),
+            )
+            return cur.fetchone() is not None
+
+    def get_game_team_ids(self, game_uuid: str) -> Optional[Tuple[str, str]]:
+        with self.conn.cursor() as cur:
+            cur.execute(
+                "select home_team_id, away_team_id from games where id = %s limit 1",
+                (game_uuid,),
+            )
+            row = cur.fetchone()
+            if not row:
+                return None
+            return (row["home_team_id"], row["away_team_id"])  # type: ignore[index]
+
 
 class DBSupabase(DBBase):
     def __init__(self, url: str, key: str) -> None:
@@ -444,6 +473,36 @@ class DBSupabase(DBBase):
             data = [d for d in data if str(d.get("start_time_utc", "")).split("T")[0] == date_iso]
         return [d.get("game_id") for d in data if d.get("game_id")]
 
+    def has_odds_for_selection(self, market_selection_id: str, sportsbook_id: str) -> bool:
+        q = (
+            self.client.table("odds")
+            .select("id")
+            .eq("market_selection_id", market_selection_id)
+            .eq("sportsbook_id", sportsbook_id)
+            .limit(1)
+        )
+        try:
+            data = q.execute().data or []
+        except Exception:
+            data = []
+        return bool(data)
+
+    def get_game_team_ids(self, game_uuid: str) -> Optional[Tuple[str, str]]:
+        q = (
+            self.client.table("games")
+            .select("home_team_id,away_team_id")
+            .eq("id", game_uuid)
+            .limit(1)
+        )
+        try:
+            data = q.execute().data or []
+        except Exception:
+            data = []
+        if not data:
+            return None
+        row = data[0]
+        return (row.get("home_team_id"), row.get("away_team_id"))
+
 
 def get_db() -> DBBase:
     if os.environ.get("DATABASE_URL"):
@@ -513,7 +572,69 @@ def ensure_market_selection(db: DBBase, game_uuid: str, selection_type: str, per
     return db.insert_market_selection(game_uuid, selection_type, period, participant_team_id, side, line, line_units)
 
 
-def ingest_from_json(db: DBBase, payload: dict, teams_rows: dict, verbose: bool = False) -> dict:
+def _dedupe_model_output(model_output: dict, verbose: bool = False) -> dict:
+    """Return a copy of model_output with duplicate games removed.
+
+    Deduplication key preference:
+      1) game_id if present
+      2) fallback slug built from last word of away/home and local date
+    First occurrence wins.
+    """
+    games = model_output.get("games") or []
+    if not isinstance(games, list):
+        return model_output
+
+    tz_name = (model_output.get("time_zone") or model_output.get("timezone") or "America/New_York").replace(" ", "_")
+    try:
+        tz = pytz.timezone(tz_name)
+    except Exception:
+        tz = pytz.timezone("America/New_York")
+
+    kept = {}
+    unique = []
+    for g in games:
+        key = g.get("game_id")
+        if not key:
+            # Build fallback key
+            away_full = (g.get("away_team") or g.get("away") or "").strip().upper()
+            home_full = (g.get("home_team") or g.get("home") or "").strip().upper()
+            away_last = away_full.split(" ")[-1] if away_full else ""
+            home_last = home_full.split(" ")[-1] if home_full else ""
+            # date
+            try:
+                if g.get("start_time_local"):
+                    dt_local = dtparser.parse(g.get("start_time_local"))
+                    if dt_local.tzinfo is None:
+                        dt_local = tz.localize(dt_local)
+                elif g.get("start_time"):
+                    dt_utc = dtparser.parse(g.get("start_time"))
+                    if dt_utc.tzinfo is None:
+                        dt_utc = pytz.UTC.localize(dt_utc)
+                    dt_local = dt_utc.astimezone(tz)
+                elif g.get("game_date"):
+                    dt_local = tz.localize(datetime.fromisoformat(str(g.get("game_date"))))
+                else:
+                    dt_local = datetime.now(tz)
+                date_iso = round_to_half_hour(dt_local).date().isoformat()
+            except Exception:
+                date_iso = datetime.now(tz).date().isoformat()
+            key = build_game_slug(away_last, home_last, date_iso)
+        if key in kept:
+            continue
+        kept[key] = True
+        unique.append(g)
+
+    if verbose:
+        try:
+            print(f"[INFO] dedupe: {len(games)} -> {len(unique)} games")
+        except Exception:
+            pass
+    out = dict(model_output)
+    out["games"] = unique
+    return out
+
+
+def ingest_from_json(db: DBBase, payload: dict, teams_rows: dict, verbose: bool = False, only_missing: bool = False, only_games: Optional[List[str]] = None) -> dict:
     name_to_id, name_to_tno = load_team_map(teams_rows)
 
     games = payload.get("games")
@@ -544,8 +665,9 @@ def ingest_from_json(db: DBBase, payload: dict, teams_rows: dict, verbose: bool 
             src_markets = g.get("market") if isinstance(g, dict) else None
             away_full = normalize_team_name(g.get("away_team") or (g.get("away") or ""))
             home_full = normalize_team_name(g.get("home_team") or (g.get("home") or ""))
-            away_id = name_to_id.get(away_full)
-            home_id = name_to_id.get(home_full)
+            # Prefer explicit IDs from the JSON if present, then fall back to name mapping
+            away_id = g.get("away_team_id") or name_to_id.get(away_full)
+            home_id = g.get("home_team_id") or name_to_id.get(home_full)
             if not (away_id and home_id):
                 if verbose:
                     print(f"[SKIP team map] {away_full} @ {home_full}")
@@ -571,11 +693,25 @@ def ingest_from_json(db: DBBase, payload: dict, teams_rows: dict, verbose: bool 
 
             home_tno = name_to_tno.get(home_full) or home_full.split(" ")[-1]
             away_tno = name_to_tno.get(away_full) or away_full.split(" ")[-1]
-            slug = build_game_slug(away_tno, home_tno, date_iso)
-            game_uuid = db.get_game_uuid_by_slug(slug)
+            # Also compute last-word fallbacks (e.g., RED WINGS -> WINGS)
+            home_last = (home_full.split(" ")[-1] if home_full else home_tno)
+            away_last = (away_full.split(" ")[-1] if away_full else away_tno)
+
+            g_slug = (g.get("game_id") or "").strip()
+            candidate_slugs = ([g_slug] if g_slug else []) + [
+                build_game_slug(away_tno, home_tno, date_iso),
+                build_game_slug(away_last, home_last, date_iso),
+                build_game_slug(away_last, home_tno, date_iso),
+                build_game_slug(away_tno, home_last, date_iso),
+            ]
+            game_uuid = None
+            for cand in candidate_slugs:
+                game_uuid = db.get_game_uuid_by_slug(cand)
+                if game_uuid:
+                    break
             if not game_uuid:
                 if verbose:
-                    print(f"[SKIP game lookup] slug={slug}")
+                    print(f"[SKIP game lookup] tried={candidate_slugs}")
                 continue
 
             ml = (src_markets.get("moneyline") if isinstance(src_markets, dict) else None) or g.get("moneyline") or {}
@@ -583,11 +719,13 @@ def ingest_from_json(db: DBBase, payload: dict, teams_rows: dict, verbose: bool 
             ml_home = _val(ml.get("home"))
             if ml_away is not None:
                 sel = ensure_market_selection(db, game_uuid, "moneyline", "full_game", away_id, "away", None, DEFAULT_LINE_UNITS)
-                db.insert_odds(sel, sportsbook_id, now_iso, int(ml_away), american_to_decimal(ml_away), "dk-screenshots")
+                if (not only_missing) or (only_missing and not db.has_odds_for_selection(sel, sportsbook_id)):
+                    db.insert_odds(sel, sportsbook_id, now_iso, int(ml_away), american_to_decimal(ml_away), "dk-screenshots")
                 inserted_odds += 1
             if ml_home is not None:
                 sel = ensure_market_selection(db, game_uuid, "moneyline", "full_game", home_id, "home", None, DEFAULT_LINE_UNITS)
-                db.insert_odds(sel, sportsbook_id, now_iso, int(ml_home), american_to_decimal(ml_home), "dk-screenshots")
+                if (not only_missing) or (only_missing and not db.has_odds_for_selection(sel, sportsbook_id)):
+                    db.insert_odds(sel, sportsbook_id, now_iso, int(ml_home), american_to_decimal(ml_home), "dk-screenshots")
                 inserted_odds += 1
 
             spread_container = src_markets if isinstance(src_markets, dict) else g
@@ -613,13 +751,24 @@ def ingest_from_json(db: DBBase, payload: dict, teams_rows: dict, verbose: bool 
             if (sp_home_line is None or sp_home_price is None) and isinstance(spread.get("home"), dict):
                 sp_home_line = spread.get("home", {}).get("line", sp_home_line)
                 sp_home_price = _val(spread.get("home", {}).get("price", sp_home_price))
+            # Cross-check team IDs from games to ensure correct home/away assignment
+            ids = db.get_game_team_ids(game_uuid) or (home_id, away_id)
+            home_uuid_from_game, away_uuid_from_game = ids
+            # If mismatch detected, swap
+            if away_uuid_from_game and away_id and away_uuid_from_game != away_id:
+                away_id = away_uuid_from_game
+            if home_uuid_from_game and home_id and home_uuid_from_game != home_id:
+                home_id = home_uuid_from_game
+
             if sp_away_line is not None and sp_away_price is not None:
                 sel = ensure_market_selection(db, game_uuid, "spread", "full_game", away_id, "away", float(sp_away_line), DEFAULT_LINE_UNITS)
-                db.insert_odds(sel, sportsbook_id, now_iso, int(sp_away_price), american_to_decimal(sp_away_price), "dk-screenshots")
+                if (not only_missing) or (only_missing and not db.has_odds_for_selection(sel, sportsbook_id)):
+                    db.insert_odds(sel, sportsbook_id, now_iso, int(sp_away_price), american_to_decimal(sp_away_price), "dk-screenshots")
                 inserted_odds += 1
             if sp_home_line is not None and sp_home_price is not None:
                 sel = ensure_market_selection(db, game_uuid, "spread", "full_game", home_id, "home", float(sp_home_line), DEFAULT_LINE_UNITS)
-                db.insert_odds(sel, sportsbook_id, now_iso, int(sp_home_price), american_to_decimal(sp_home_price), "dk-screenshots")
+                if (not only_missing) or (only_missing and not db.has_odds_for_selection(sel, sportsbook_id)):
+                    db.insert_odds(sel, sportsbook_id, now_iso, int(sp_home_price), american_to_decimal(sp_home_price), "dk-screenshots")
                 inserted_odds += 1
 
             totals = (spread_container.get("total_goals") if isinstance(spread_container, dict) else None) or g.get("total_goals") or {}
@@ -630,11 +779,13 @@ def ingest_from_json(db: DBBase, payload: dict, teams_rows: dict, verbose: bool 
             under_p = _val(t_odds.get("under"))
             if tnum is not None and over_p is not None:
                 sel = ensure_market_selection(db, game_uuid, "total", "full_game", None, "over", float(tnum), DEFAULT_LINE_UNITS)
-                db.insert_odds(sel, sportsbook_id, now_iso, int(over_p), american_to_decimal(over_p), "dk-screenshots")
+                if (not only_missing) or (only_missing and not db.has_odds_for_selection(sel, sportsbook_id)):
+                    db.insert_odds(sel, sportsbook_id, now_iso, int(over_p), american_to_decimal(over_p), "dk-screenshots")
                 inserted_odds += 1
             if tnum is not None and under_p is not None:
                 sel = ensure_market_selection(db, game_uuid, "total", "full_game", None, "under", float(tnum), DEFAULT_LINE_UNITS)
-                db.insert_odds(sel, sportsbook_id, now_iso, int(under_p), american_to_decimal(under_p), "dk-screenshots")
+                if (not only_missing) or (only_missing and not db.has_odds_for_selection(sel, sportsbook_id)):
+                    db.insert_odds(sel, sportsbook_id, now_iso, int(under_p), american_to_decimal(under_p), "dk-screenshots")
                 inserted_odds += 1
 
         except Exception as exc:
@@ -653,15 +804,19 @@ def main() -> int:
     ap.add_argument("--selector", default=None)
     ap.add_argument("--width", type=int, default=1400)
     ap.add_argument("--height", type=int, default=2000)
-    ap.add_argument("--chunk_height", type=int, default=1100)
+    ap.add_argument("--chunk_height", type=int, default=900)
     ap.add_argument("--overlap", type=int, default=220)
     ap.add_argument("--scale", type=int, default=4)
+    ap.add_argument("--css_zoom", type=float, default=1.4, help="Apply CSS zoom to enlarge page content before screenshots (e.g., 1.4)")
     ap.add_argument("--teams", default=str(Path(__file__).parent / "teams_rows.json"))
     ap.add_argument("--example", default=str(Path(__file__).parent / "llmjsonoutput.json"))
+    ap.add_argument("--reload", default=None, help="Path to an existing llmjsonoutput_*.json to reload instead of calling the LLM")
     ap.add_argument("--debug_raw", default=None)
-    ap.add_argument("--outdir", default=str(Path(__file__).parent / "artifacts" / f"dk_caps_{now_ts()}"))
+    ap.add_argument("--outdir", default=str(Path(__file__).parent / "artifacts" / "screenshots" / f"dk_caps_{now_ts()}"))
     ap.add_argument("--dry_run", action="store_true")
     ap.add_argument("--verbose", action="store_true")
+    ap.add_argument("--only_missing", action="store_true", help="Only insert odds where the selection has no existing odds for this sportsbook")
+    ap.add_argument("--only_games", nargs="*", default=None, help="Optional list of game_id slugs to restrict updates to (AWAY_HOME_YYYY-MM-DD)")
     args = ap.parse_args()
 
     outdir = Path(args.outdir)
@@ -670,47 +825,67 @@ def main() -> int:
     teams_path = Path(args.teams)
     example_path = Path(args.example)
     if not teams_path.exists():
-        raise RuntimeError(f"Missing teams_rows.json at {teams_path}")
-    if not example_path.exists():
-        raise RuntimeError(f"Missing llmjsonoutput.json at {example_path}")
-    teams_rows = json.loads(teams_path.read_text())
-    llm_example = json.loads(example_path.read_text())
-
-    with sync_playwright() as p:
-        browser = p.chromium.launch(headless=True, args=["--disable-blink-features=AutomationControlled"])
-        context = browser.new_context(
-            viewport={"width": args.width, "height": args.height},
-            device_scale_factor=args.scale,
-            user_agent=(
-                "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
-                "AppleWebKit/537.36 (KHTML, like Gecko) "
-                "Chrome/120.0.0.0 Safari/537.36"
-            ),
-        )
-        page = context.new_page()
-        print("Navigating…")
-        try:
-            page.goto(DK_URL, wait_until="domcontentloaded", timeout=10000)
-            wait_page_ready(page)
-            dismiss_modals(page)
-            autoscroll_all(page)
-        except Exception:
-            pass
-
-        if args.mode == "chunks":
-            images = screenshot_chunks(page, outdir, width=args.width, chunk_h=args.chunk_height, overlap=args.overlap)
+        if args.reload:
+            teams_rows = []  # allow reload mode to proceed without teams file when IDs are present
         else:
-            images = screenshot_cards(page, args.selector, outdir)
-        browser.close()
+            raise RuntimeError(f"Missing teams_rows.json at {teams_path}")
+    else:
+        teams_rows = json.loads(teams_path.read_text())
+    if not example_path.exists():
+        if args.reload:
+            llm_example = {"games": []}
+        else:
+            raise RuntimeError(f"Missing llmjsonoutput.json at {example_path}")
+    else:
+        llm_example = json.loads(example_path.read_text())
 
-    print("\nScreenshots:")
-    for pth in images:
-        print("-", pth)
+    images: List[Path] = []
+    if not args.reload:
+        with sync_playwright() as p:
+            browser = p.chromium.launch(headless=True, args=["--disable-blink-features=AutomationControlled"])
+            context = browser.new_context(
+                viewport={"width": args.width, "height": args.height},
+                device_scale_factor=args.scale,
+                user_agent=(
+                    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+                    "AppleWebKit/537.36 (KHTML, like Gecko) "
+                    "Chrome/120.0.0.0 Safari/537.36"
+                ),
+            )
+            page = context.new_page()
+            print("Navigating…")
+            try:
+                page.goto(DK_URL, wait_until="domcontentloaded", timeout=10000)
+                wait_page_ready(page)
+                dismiss_modals(page)
+                if args.css_zoom and args.css_zoom != 1.0:
+                    apply_css_zoom(page, float(args.css_zoom))
+                autoscroll_all(page)
+            except Exception:
+                pass
+
+            if args.mode == "chunks":
+                images = screenshot_chunks(page, outdir, width=args.width, chunk_h=args.chunk_height, overlap=args.overlap)
+            else:
+                images = screenshot_cards(page, args.selector, outdir)
+            browser.close()
+
+        if images:
+            print("\nScreenshots:")
+            for pth in images:
+                print("-", pth)
 
     debug_path = Path(args.debug_raw) if args.debug_raw else None
-    model_output = call_openai(images, teams_rows, llm_example, args.selection, debug_path=debug_path)
+    if args.reload:
+        # Load existing JSON file instead of calling the model
+        model_output = json.loads(Path(args.reload).read_text())
+        # Remove duplicates just in case
+        model_output = _dedupe_model_output(model_output, verbose=args.verbose)
+    else:
+        model_output = call_openai(images, teams_rows, llm_example, args.selection, debug_path=debug_path)
+        model_output = _dedupe_model_output(model_output, verbose=args.verbose)
 
-    out_json = Path(__file__).parent / f"llmjsonoutput_{now_ts()}.json"
+    out_json = Path(__file__).parent / f"artifacts/json/llmjsonoutput_{now_ts()}.json"
     out_json.write_text(json.dumps(model_output, indent=2))
     print(f"Wrote {out_json}")
 
@@ -719,7 +894,12 @@ def main() -> int:
         return 0
 
     db = get_db()
-    res = ingest_from_json(db, model_output, teams_rows, verbose=args.verbose)
+    # Optional scoping by game slugs
+    if args.only_games:
+        # Filter model_output to only the specified game_ids
+        games = model_output.get("games") or []
+        model_output["games"] = [g for g in games if (g.get("game_id") in set(args.only_games))]
+    res = ingest_from_json(db, model_output, teams_rows, verbose=args.verbose, only_missing=args.only_missing, only_games=args.only_games)
     print({"odds_inserted": res.get("inserted", 0)})
     return 0
 

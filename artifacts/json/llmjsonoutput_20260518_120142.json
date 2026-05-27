@@ -1,0 +1,57 @@
+{
+  "time_zone": "America/Los_Angeles",
+  "book": "DraftKings",
+  "sportsbook_id": "4d7a01fa-2e62-48d2-aa87-41820bebf031",
+  "game_count": 1,
+  "games": [
+    {
+      "game_id": "CANADIENS_SABRES_2026-05-18",
+      "game_date": "2026-05-18",
+      "start_time": "2026-05-19 02:30:00+00",
+      "timestamp_utc": "2026-05-18 15:00:32+00",
+      "away_team": "MONTREAL CANADIENS",
+      "away_team_id": "5d0251cf-40b3-4ba3-9f38-48f3b7d0beeb",
+      "home_team": "BUFFALO SABRES",
+      "home_team_id": "d39c2fbd-4307-49ed-9aac-1edd08ad883f",
+      "market": {
+        "moneyline": {
+          "away": {
+            "price_american": 102,
+            "price_european": 2.02
+          },
+          "home": {
+            "price_american": -122,
+            "price_european": 1.82
+          }
+        },
+        "spread": {
+          "away": 1.5,
+          "home": -1.5
+        },
+        "spread_odds": {
+          "away": {
+            "price_american": -250,
+            "price_european": 1.4
+          },
+          "home": {
+            "price_american": 205,
+            "price_european": 3.05
+          }
+        },
+        "total_goals": {
+          "number": 5.5
+        },
+        "total_goals_odds": {
+          "over": {
+            "price_american": 100,
+            "price_european": 2.0
+          },
+          "under": {
+            "price_american": -120,
+            "price_european": 1.83
+          }
+        }
+      }
+    }
+  ]
+}

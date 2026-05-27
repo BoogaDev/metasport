@@ -1,0 +1,57 @@
+{
+  "time_zone": "America/New_York",
+  "book": "DraftKings",
+  "sportsbook_id": "4d7a01fa-2e62-48d2-aa87-41820bebf031",
+  "game_count": 1,
+  "games": [
+    {
+      "game_id": "FLYERS_HURRICANES_2026-05-02",
+      "game_date": "2026-05-02",
+      "start_time": "2026-05-03 00:00:00+00",
+      "timestamp_utc": "2026-05-02 12:00:35+00",
+      "away_team": "PHILADELPHIA FLYERS",
+      "away_team_id": "73f4a80f-5652-4ffe-a542-e1b09ee1a49c",
+      "home_team": "CAROLINA HURRICANES",
+      "home_team_id": "7731861f-4f68-4bd4-84c9-62373a1486eb",
+      "market": {
+        "moneyline": {
+          "away": {
+            "price_american": 180,
+            "price_european": 2.8
+          },
+          "home": {
+            "price_american": -218,
+            "price_european": 1.46
+          }
+        },
+        "spread": {
+          "away": 1.5,
+          "home": -1.5
+        },
+        "spread_odds": {
+          "away": {
+            "price_american": -148,
+            "price_european": 1.68
+          },
+          "home": {
+            "price_american": 124,
+            "price_european": 2.24
+          }
+        },
+        "total_goals": {
+          "number": 5.5
+        },
+        "total_goals_odds": {
+          "over": {
+            "price_american": -120,
+            "price_european": 1.83
+          },
+          "under": {
+            "price_american": 100,
+            "price_european": 2.0
+          }
+        }
+      }
+    }
+  ]
+}

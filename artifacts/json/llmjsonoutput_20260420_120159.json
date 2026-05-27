@@ -1,0 +1,204 @@
+{
+  "time_zone": "America/Los_Angeles",
+  "book": "DraftKings",
+  "sportsbook_id": "4d7a01fa-2e62-48d2-aa87-41820bebf031",
+  "game_count": 4,
+  "games": [
+    {
+      "game_id": "FLYERS_PENGUINS_2026-04-20",
+      "game_date": "2026-04-20",
+      "start_time": "2026-04-20 23:00:00+00",
+      "timestamp_utc": "2026-04-20 15:00:32+00",
+      "away_team": "PHILADELPHIA FLYERS",
+      "away_team_id": "73f4a80f-5652-4ffe-a542-e1b09ee1a49c",
+      "home_team": "PITTSBURGH PENGUINS",
+      "home_team_id": "7999dc5f-0184-49bd-8c69-274631629a90",
+      "market": {
+        "moneyline": {
+          "away": {
+            "price_american": 130,
+            "price_european": 2.3
+          },
+          "home": {
+            "price_american": -155,
+            "price_european": 1.65
+          }
+        },
+        "spread": {
+          "away": 1.5,
+          "home": -1.5
+        },
+        "spread_odds": {
+          "away": {
+            "price_american": -198,
+            "price_european": 1.51
+          },
+          "home": {
+            "price_american": 164,
+            "price_european": 2.64
+          }
+        },
+        "total_goals": {
+          "number": 6.5
+        },
+        "total_goals_odds": {
+          "over": {
+            "price_american": 114,
+            "price_european": 2.14
+          },
+          "under": {
+            "price_american": -135,
+            "price_european": 1.74
+          }
+        }
+      }
+    },
+    {
+      "game_id": "SENATORS_HURRICANES_2026-04-20",
+      "game_date": "2026-04-20",
+      "start_time": "2026-04-20 23:30:00+00",
+      "timestamp_utc": "2026-04-20 15:00:32+00",
+      "away_team": "OTTAWA SENATORS",
+      "away_team_id": "d1ed899a-5158-495a-8ea2-05ef3de042ce",
+      "home_team": "CAROLINA HURRICANES",
+      "home_team_id": "7731861f-4f68-4bd4-84c9-62373a1486eb",
+      "market": {
+        "moneyline": {
+          "away": {
+            "price_american": 124,
+            "price_european": 2.24
+          },
+          "home": {
+            "price_american": -148,
+            "price_european": 1.68
+          }
+        },
+        "spread": {
+          "away": 1.5,
+          "home": -1.5
+        },
+        "spread_odds": {
+          "away": {
+            "price_american": -205,
+            "price_european": 1.49
+          },
+          "home": {
+            "price_american": 170,
+            "price_european": 2.7
+          }
+        },
+        "total_goals": {
+          "number": 5.5
+        },
+        "total_goals_odds": {
+          "over": {
+            "price_american": -125,
+            "price_european": 1.8
+          },
+          "under": {
+            "price_american": 105,
+            "price_european": 2.05
+          }
+        }
+      }
+    },
+    {
+      "game_id": "WILD_STARS_2026-04-20",
+      "game_date": "2026-04-20",
+      "start_time": "2026-04-21 01:30:00+00",
+      "timestamp_utc": "2026-04-20 15:00:32+00",
+      "away_team": "MINNESOTA WILD",
+      "away_team_id": "fdd2627d-6187-4754-b109-249f756cf578",
+      "home_team": "DALLAS STARS",
+      "home_team_id": "b5f73b54-8d22-4faf-aef4-9fdae8ed85a3",
+      "market": {
+        "moneyline": {
+          "away": {
+            "price_american": 114,
+            "price_european": 2.14
+          },
+          "home": {
+            "price_american": -135,
+            "price_european": 1.74
+          }
+        },
+        "spread": {
+          "away": 1.5,
+          "home": -1.5
+        },
+        "spread_odds": {
+          "away": {
+            "price_american": -238,
+            "price_european": 1.42
+          },
+          "home": {
+            "price_american": 195,
+            "price_european": 2.95
+          }
+        },
+        "total_goals": {
+          "number": 5.5
+        },
+        "total_goals_odds": {
+          "over": {
+            "price_american": -130,
+            "price_european": 1.77
+          },
+          "under": {
+            "price_american": 110,
+            "price_european": 2.1
+          }
+        }
+      }
+    },
+    {
+      "game_id": "DUCKS_OILERS_2026-04-20",
+      "game_date": "2026-04-20",
+      "start_time": "2026-04-21 02:00:00+00",
+      "timestamp_utc": "2026-04-20 15:00:32+00",
+      "away_team": "ANAHEIM DUCKS",
+      "away_team_id": "aa5cd515-07b0-480e-b0b0-e31c5f51a872",
+      "home_team": "EDMONTON OILERS",
+      "home_team_id": "b29e8bb7-1e53-4c14-a70b-bd24f5cd197b",
+      "market": {
+        "moneyline": {
+          "away": {
+            "price_american": 145,
+            "price_european": 2.45
+          },
+          "home": {
+            "price_american": -175,
+            "price_european": 1.57
+          }
+        },
+        "spread": {
+          "away": 1.5,
+          "home": -1.5
+        },
+        "spread_odds": {
+          "away": {
+            "price_american": -166,
+            "price_european": 1.6
+          },
+          "home": {
+            "price_american": 140,
+            "price_european": 2.4
+          }
+        },
+        "total_goals": {
+          "number": 6.5
+        },
+        "total_goals_odds": {
+          "over": {
+            "price_american": -135,
+            "price_european": 1.74
+          },
+          "under": {
+            "price_american": 114,
+            "price_european": 2.14
+          }
+        }
+      }
+    }
+  ]
+}
