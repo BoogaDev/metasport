@@ -19,7 +19,9 @@ from dotenv import load_dotenv
 
 
 LOCAL_TZ = pytz.timezone("America/Los_Angeles")
-DK_URL = "https://sportsbook.draftkings.com/leagues/hockey/nhl"
+# Pin the Games > Game Lines tab explicitly. As of 2026-09-19 the bare league URL
+# lands on the Futures tab, which has no moneyline/puck-line/total cards.
+DK_URL = "https://sportsbook.draftkings.com/leagues/hockey/nhl?category=games&subcategory=game-lines"
 DEFAULT_LINE_UNITS = "goals"  # NHL
 DEFAULT_SPORTSBOOK_SLUG = "draftkings"
 DEFAULT_SPORTSBOOK_NAME = "DraftKings"
@@ -842,14 +844,22 @@ def main() -> int:
     images: List[Path] = []
     if not args.reload:
         with sync_playwright() as p:
-            browser = p.chromium.launch(headless=True, args=["--disable-blink-features=AutomationControlled"])
+            # channel="chromium" selects Chromium's *new* headless mode (full browser
+            # binary) instead of the stripped-down "headless shell". As of 2026-09-19
+            # DraftKings' Akamai bot manager 403s the headless shell but serves the
+            # new-headless build normally. Requires `playwright install chromium`.
+            browser = p.chromium.launch(
+                headless=True,
+                channel="chromium",
+                args=["--disable-blink-features=AutomationControlled"],
+            )
             context = browser.new_context(
                 viewport={"width": args.width, "height": args.height},
                 device_scale_factor=args.scale,
                 user_agent=(
                     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
                     "AppleWebKit/537.36 (KHTML, like Gecko) "
-                    "Chrome/120.0.0.0 Safari/537.36"
+                    "Chrome/148.0.0.0 Safari/537.36"
                 ),
             )
             page = context.new_page()
