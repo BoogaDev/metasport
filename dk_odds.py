@@ -6,6 +6,7 @@ See README.md for setup and usage.
 """
 
 import os
+import sys
 import json
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
@@ -22,6 +23,10 @@ LOCAL_TZ = pytz.timezone("America/Los_Angeles")
 # Pin the Games > Game Lines tab explicitly. As of 2026-09-19 the bare league URL
 # lands on the Futures tab, which has no moneyline/puck-line/total cards.
 DK_URL = "https://sportsbook.draftkings.com/leagues/hockey/nhl?category=games&subcategory=game-lines"
+# DraftKings lists exhibition games under a separate league. Off-season / in-season
+# it renders an empty board (a couple of chunks), so scraping it year-round is cheap.
+DK_PRESEASON_URL = "https://sportsbook.draftkings.com/leagues/hockey/nhl-preseason"
+DK_PAGES = (("nhl", DK_URL), ("pre", DK_PRESEASON_URL))
 DEFAULT_LINE_UNITS = "goals"  # NHL
 DEFAULT_SPORTSBOOK_SLUG = "draftkings"
 DEFAULT_SPORTSBOOK_NAME = "DraftKings"
@@ -182,14 +187,15 @@ def screenshot_cards(page, selector: Optional[str], outdir: Path) -> List[Path]:
     return saved
 
 
-def screenshot_chunks(page, outdir: Path, width: int = 1400, chunk_h: int = 1100, overlap: int = 220) -> List[Path]:
+def screenshot_chunks(page, outdir: Path, width: int = 1400, chunk_h: int = 1100, overlap: int = 220, prefix: str = "") -> List[Path]:
     page.set_viewport_size({"width": width, "height": chunk_h})
     total = page.evaluate("document.body.scrollHeight")
     y, idx, saved = 0, 1, []
+    tag = f"{prefix}_" if prefix else ""
     while y < total:
         page.evaluate(f"window.scrollTo(0, {y})")
         page.wait_for_timeout(250)
-        fname = outdir / f"chunk_{idx:02d}_{now_ts()}.png"
+        fname = outdir / f"{tag}chunk_{idx:02d}_{now_ts()}.png"
         page.screenshot(path=str(fname), full_page=False)
         saved.append(fname)
         print(f"Saved {fname.name} (y={y})")
@@ -236,8 +242,11 @@ def call_openai(images: List[Path], teams_json: dict, example_json: dict, date_s
             response_format={"type": "json_object"},
         )
         raw = resp.choices[0].message.content if resp and resp.choices else "{}"
-    except Exception:
-        raw = "{}"
+    except Exception as e:
+        # Do NOT swallow this. A failed LLM call used to degrade to "{}" -> "games
+        # found: 0" -> exit 0, which hid an exhausted OpenAI balance for days.
+        print(f"[ERROR] OpenAI call failed ({type(e).__name__}): {e}", file=sys.stderr)
+        raise
 
     if debug_path:
         try:
@@ -863,21 +872,22 @@ def main() -> int:
                 ),
             )
             page = context.new_page()
-            print("Navigating…")
-            try:
-                page.goto(DK_URL, wait_until="domcontentloaded", timeout=10000)
-                wait_page_ready(page)
-                dismiss_modals(page)
-                if args.css_zoom and args.css_zoom != 1.0:
-                    apply_css_zoom(page, float(args.css_zoom))
-                autoscroll_all(page)
-            except Exception:
-                pass
+            for tag, url in DK_PAGES:
+                print(f"Navigating… [{tag}] {url}")
+                try:
+                    page.goto(url, wait_until="domcontentloaded", timeout=10000)
+                    wait_page_ready(page)
+                    dismiss_modals(page)
+                    if args.css_zoom and args.css_zoom != 1.0:
+                        apply_css_zoom(page, float(args.css_zoom))
+                    autoscroll_all(page)
+                except Exception:
+                    pass
 
-            if args.mode == "chunks":
-                images = screenshot_chunks(page, outdir, width=args.width, chunk_h=args.chunk_height, overlap=args.overlap)
-            else:
-                images = screenshot_cards(page, args.selector, outdir)
+                if args.mode == "chunks":
+                    images += screenshot_chunks(page, outdir, width=args.width, chunk_h=args.chunk_height, overlap=args.overlap, prefix=tag)
+                else:
+                    images += screenshot_cards(page, args.selector, outdir)
             browser.close()
 
         if images:
