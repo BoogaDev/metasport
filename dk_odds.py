@@ -806,6 +806,67 @@ def ingest_from_json(db: DBBase, payload: dict, teams_rows: dict, verbose: bool 
     return {"inserted": inserted_odds}
 
 
+def capture_screenshots(
+    outdir: Path,
+    *,
+    width: int = 1400,
+    height: int = 2000,
+    scale: int = 4,
+    css_zoom: float = 2.0,
+    chunk_height: int = 700,
+    overlap: int = 220,
+    mode: str = "chunks",
+    selector: Optional[str] = None,
+    pages: Tuple[Tuple[str, str], ...] = DK_PAGES,
+) -> List[Path]:
+    """Launch a headless browser, visit every DK page in ``pages`` and save PNGs.
+
+    Defaults mirror ``run.sh``. Returns the saved paths in page order so a
+    caller can hand them straight to an LLM. Also used by
+    ``modules.odds_dk`` (``scrape`` subcommand), which supplies its own LLM.
+    """
+    ensure_dir(outdir)
+    images: List[Path] = []
+    with sync_playwright() as p:
+        # channel="chromium" selects Chromium's *new* headless mode (full browser
+        # binary) instead of the stripped-down "headless shell". As of 2026-09-19
+        # DraftKings' Akamai bot manager 403s the headless shell but serves the
+        # new-headless build normally. Requires `playwright install chromium`.
+        browser = p.chromium.launch(
+            headless=True,
+            channel="chromium",
+            args=["--disable-blink-features=AutomationControlled"],
+        )
+        context = browser.new_context(
+            viewport={"width": width, "height": height},
+            device_scale_factor=scale,
+            user_agent=(
+                "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+                "AppleWebKit/537.36 (KHTML, like Gecko) "
+                "Chrome/148.0.0.0 Safari/537.36"
+            ),
+        )
+        page = context.new_page()
+        for tag, url in pages:
+            print(f"Navigating… [{tag}] {url}")
+            try:
+                page.goto(url, wait_until="domcontentloaded", timeout=10000)
+                wait_page_ready(page)
+                dismiss_modals(page)
+                if css_zoom and css_zoom != 1.0:
+                    apply_css_zoom(page, float(css_zoom))
+                autoscroll_all(page)
+            except Exception:
+                pass
+
+            if mode == "chunks":
+                images += screenshot_chunks(page, outdir, width=width, chunk_h=chunk_height, overlap=overlap, prefix=tag)
+            else:
+                images += screenshot_cards(page, selector, outdir)
+        browser.close()
+    return images
+
+
 def main() -> int:
     import argparse
 
@@ -852,43 +913,17 @@ def main() -> int:
 
     images: List[Path] = []
     if not args.reload:
-        with sync_playwright() as p:
-            # channel="chromium" selects Chromium's *new* headless mode (full browser
-            # binary) instead of the stripped-down "headless shell". As of 2026-09-19
-            # DraftKings' Akamai bot manager 403s the headless shell but serves the
-            # new-headless build normally. Requires `playwright install chromium`.
-            browser = p.chromium.launch(
-                headless=True,
-                channel="chromium",
-                args=["--disable-blink-features=AutomationControlled"],
-            )
-            context = browser.new_context(
-                viewport={"width": args.width, "height": args.height},
-                device_scale_factor=args.scale,
-                user_agent=(
-                    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
-                    "AppleWebKit/537.36 (KHTML, like Gecko) "
-                    "Chrome/148.0.0.0 Safari/537.36"
-                ),
-            )
-            page = context.new_page()
-            for tag, url in DK_PAGES:
-                print(f"Navigating… [{tag}] {url}")
-                try:
-                    page.goto(url, wait_until="domcontentloaded", timeout=10000)
-                    wait_page_ready(page)
-                    dismiss_modals(page)
-                    if args.css_zoom and args.css_zoom != 1.0:
-                        apply_css_zoom(page, float(args.css_zoom))
-                    autoscroll_all(page)
-                except Exception:
-                    pass
-
-                if args.mode == "chunks":
-                    images += screenshot_chunks(page, outdir, width=args.width, chunk_h=args.chunk_height, overlap=args.overlap, prefix=tag)
-                else:
-                    images += screenshot_cards(page, args.selector, outdir)
-            browser.close()
+        images = capture_screenshots(
+            outdir,
+            width=args.width,
+            height=args.height,
+            scale=args.scale,
+            css_zoom=args.css_zoom,
+            chunk_height=args.chunk_height,
+            overlap=args.overlap,
+            mode=args.mode,
+            selector=args.selector,
+        )
 
         if images:
             print("\nScreenshots:")
